@@ -1,7 +1,7 @@
 # ITDOCS_web
 ITDOCS web development dengan framework Laravel 5.2.31
 
-*Database bisa diimport melalui PHPmyAdmin dari file la1.sql yang tersedia
+*Buat DB dengan nama la1, Database bisa diimport melalui PHPmyAdmin dari file la1.sql yang tersedia
 
 *Akses web melalui localhost/la1/public
 
