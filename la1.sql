@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2018 at 06:42 AM
--- Server version: 5.7.19
+-- Generation Time: Jul 17, 2018 at 10:04 AM
+-- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -382,7 +382,15 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `parent`, `deleted_at`, `created_at`, `updated_at`, `nama_instansi`) VALUES
 (1, 'SUPER_ADMIN', 'Super Admin', 'Full Access Role', 1, NULL, '2018-07-15 07:17:37', '2018-07-16 02:42:01', 2),
-(2, 'ROLE_TESTER', 'Tester', 'Pengetesan Aplikasi', 1, NULL, '2018-07-16 01:58:30', '2018-07-16 05:46:19', 2);
+(2, 'ROLE_TESTER', 'Tester', 'Pengetesan Aplikasi', 1, NULL, '2018-07-16 01:58:30', '2018-07-16 05:46:19', 2),
+(3, 'PJ_PROBIS', 'Inisiator', '', 1, NULL, NULL, NULL, 2),
+(4, 'STAF', 'Init Ops', '', 1, NULL, NULL, NULL, 2),
+(5, 'PJ_SI', 'Project Man', '', 1, NULL, NULL, NULL, 2),
+(6, 'STAF_ANALIS', 'Analyst', '', 1, NULL, NULL, NULL, 2),
+(7, 'STAF_PENGEMBANG', 'Dev', '', 1, NULL, NULL, NULL, 2),
+(8, 'STAF_QC', 'Tester', '', 1, NULL, NULL, NULL, 2),
+(9, 'STAF_DUKTEK', 'Support', '', 1, NULL, NULL, NULL, 2),
+(10, 'PJ_QA', 'QA', '', 1, NULL, NULL, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -752,7 +760,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `role_module`
