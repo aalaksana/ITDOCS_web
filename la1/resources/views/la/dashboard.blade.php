@@ -1,17 +1,29 @@
 @extends('la.layouts.app')
 
-@section('htmlheader_title') Dashboard @endsection
-@section('contentheader_title') Dashboard @endsection
-@section('contentheader_description') Organisation Overview @endsection
+@section('htmlheader_title') Beranda @endsection
+@section('contentheader_title') Beranda @endsection
+@section('contentheader_description') Selayang Pandang Penugasan @endsection
 
 @section('main-content')
-<!-- Main content -->
-        <section class="content">
-          <!-- Small boxes (Stat box) -->
-        </section><!-- /.content -->
+<!-- Konten Dashboard -->
+<section class="content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="small-box" style="background-color: #1e655e">
+        <div class="inner" style="height: 15%">
+          <h3 style="font-size: 18px; color: whitesmoke">Progress Aplikasi Dummy</h3>
+          <p style="font-size: 11px; color: whitesmoke">per tanggal 17 Juli 2018</p>
+          <div style="min-width: 320px; max-width: 1024px; margin: 8px auto;"> <div class="progress-bar-wrapper"></div> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 @endsection
 
 @push('styles')
+<!-- Progress Bar -->
+<link rel="stylesheet" href="{{ asset('la-assets/plugins/progress-bar-master/main.css') }}">
 <!-- Morris chart -->
 <link rel="stylesheet" href="{{ asset('la-assets/plugins/morris/morris.css') }}">
 <!-- jvectormap -->
@@ -32,6 +44,9 @@
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
+<!-- Progress Bar -->
+<script src="{{ asset('la-assets/plugins/progress-bar-master/progress-bar.js') }}"></script>
+<script src="{{ asset('la-assets/plugins/progress-bar-master/app.js') }}"></script>
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="{{ asset('la-assets/plugins/morris/morris.min.js') }}"></script>
@@ -60,8 +75,8 @@
 (function($) {
 	$('body').pgNotification({
 		style: 'circle',
-		title: 'LaraAdmin',
-		message: "Welcome to LaraAdmin...",
+		title: 'ITDOCS',
+		message: "Selamat Datang di IT Doc System",
 		position: "top-right",
 		timeout: 0,
 		type: "success",
