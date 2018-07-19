@@ -7,8 +7,7 @@
 		<!-- mini logo for sidebar mini 50x50 pixels -->
 		<span class="logo-mini"><b>{{ LAConfigs::getByKey('sitename_short') }}</b></span>
 		<!-- logo for regular state and mobile devices -->
-		<span class="logo-lg"><b>{{ LAConfigs::getByKey('sitename_part1') }}</b>
-		 {{ LAConfigs::getByKey('sitename_part2') }}</span>
+		<span class="logo-lg"><img src="../public/la-assets/img/itdocs.png" alt="logo ITDOCS" style="width: 50%"></span>
 	</a>
 	@endif
 
