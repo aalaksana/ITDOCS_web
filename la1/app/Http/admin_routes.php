@@ -32,6 +32,10 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	/* ================== Users ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/users', 'LA\UsersController');
 	Route::get(config('laraadmin.adminRoute') . '/user_dt_ajax', 'LA\UsersController@dtajax');
+	Route::get('rekam', function()
+	{
+		return view('la.rekam');
+	});
 	
 	/* ================== Uploads ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/uploads', 'LA\UploadsController');
