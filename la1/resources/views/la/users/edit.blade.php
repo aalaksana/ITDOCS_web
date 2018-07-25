@@ -34,9 +34,10 @@
 					
 					{{--
 					@la_input($module, 'name')
-					@la_input($module, 'context_id')
+					@la_input($module, 'nip')
 					@la_input($module, 'email')
 					@la_input($module, 'password')
+					@la_input($module, 'instansi')
 					--}}
                     <br>
 					<div class="form-group">

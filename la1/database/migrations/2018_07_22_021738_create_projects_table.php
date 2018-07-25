@@ -8,7 +8,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Dwij\Laraadmin\Models\Module;
 
-class CreateRolesTable extends Migration
+class CreateProjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,11 +17,19 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Module::generate("Roles", 'roles', 'name', 'fa-user-plus', [
-            ["name", "Nama Role", "Name", false, "", 1, 250, true],
-            ["display_name", "Label", "String", false, "", 0, 250, false],
-            ["description", "Deskripsi", "Textarea", false, "", 0, 1000, false],
-            ["parent", "Parent Role", "Dropdown", false, "1", 0, 0, false, "@roles"],
+        Module::generate("Projects", 'projects', 'nama', 'fa-connectdevelop', [
+            ["nama", "Nama Proyek", "Name", false, "", 0, 255, true],
+            ["dasar", "Dasar Hukum", "Name", false, "", 0, 255, false],
+            ["inisiator", "Inisiator", "Dropdown", false, "", 0, 10, false, "@users"],
+            ["instansi", "Nama Instansi", "Dropdown", false, "", 0, 0, false, "@departments"],
+            ["deskripsi", "Deskripsi", "Textarea", false, "", 0, 0, false],
+            ["start_date", "Tanggal Mulai", "Date", false, "", 0, 0, false],
+            ["analisa", "Analisa", "Dropdown", false, "Input", 0, 0, false, ["Input","Diajukan","Disetujui","Ditolak"]],
+            ["perancangan", "Perancangan", "Dropdown", false, "", 0, 0, false, ["Input","Diajukan","Disetujui","Ditolak"]],
+            ["pengembangan", "Pengembangan", "Dropdown", false, "", 0, 0, false, ["Input","Diajukan","Disetujui","Ditolak"]],
+            ["pengujian", "Pengujian", "Dropdown", false, "", 0, 0, false, ["Input","Diajukan","Disetujui","Ditolak"]],
+            ["implementasi", "Implementasi", "Dropdown", false, "", 0, 0, false, ["Input","Diajukan","Disetujui","Ditolak"]],
+            ["pc_implemen", "Pasca Implementasi", "Dropdown", false, "", 0, 0, false, ["Input","Diajukan","Disetujui","Ditolak"]],
         ]);
 		
 		/*
@@ -67,8 +75,8 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        if (Schema::hasTable('roles')) {
-            Schema::drop('roles');
+        if (Schema::hasTable('projects')) {
+            Schema::drop('projects');
         }
     }
 }
