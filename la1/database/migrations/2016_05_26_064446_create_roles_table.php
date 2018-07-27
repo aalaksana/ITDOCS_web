@@ -17,11 +17,12 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Module::generate("Roles", 'roles', 'name', 'fa-user-plus', [
-            ["name", "Nama Role", "Name", false, "", 1, 250, true],
-            ["display_name", "Label", "String", false, "", 0, 250, false],
-            ["description", "Deskripsi", "Textarea", false, "", 0, 1000, false],
+        Module::generate("Roles", 'roles', 'nama_instansi', 'fa-user-plus', [
+            ["name", "Name", "Name", true, "", 1, 250, true],
+            ["display_name", "Display Name", "String", false, "", 0, 250, true],
+            ["description", "Description", "Textarea", false, "", 0, 1000, false],
             ["parent", "Parent Role", "Dropdown", false, "1", 0, 0, false, "@roles"],
+            ["nama_instansi", "Nama Instansi", "Dropdown", false, "", 0, 0, false, "@departments"],
         ]);
 		
 		/*

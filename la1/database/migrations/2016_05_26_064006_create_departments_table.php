@@ -17,15 +17,15 @@ class CreateDepartmentsTable extends Migration
      */
     public function up()
     {
-        Module::generate("Departments", 'departments', 'nama_instansi', 'fa-tags', [
-            ["nama_instansi", "Nama Instansi", "Name", false, "", 1, 255, true],
+        Module::generate("Departments", 'departments', 'name', 'fa-tags', [
+            ["nama_instansi", "Nama Instansi", "Name", true, "", 1, 255, true],
             ["kl", "Kementerian/Lembaga", "Name", false, "", 0, 255, false],
             ["es1", "Eselon 1", "Name", false, "", 0, 255, false],
             ["es2", "Eselon 2", "Name", false, "", 0, 255, false],
             ["alamat", "Alamat", "Address", false, "", 0, 1000, false],
             ["email", "Email", "Email", false, "", 0, 50, false],
-            ["telp", "No Telepon", "Mobile", false, "", 0, 50, false],
             ["fax", "No Fax", "Mobile", false, "", 0, 50, false],
+            ["telp", "No Telepon", "Mobile", false, "", 0, 50, false],
         ]);
 		
 		/*

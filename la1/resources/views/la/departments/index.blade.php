@@ -65,8 +65,8 @@
 					@la_input($module, 'es2')
 					@la_input($module, 'alamat')
 					@la_input($module, 'email')
-					@la_input($module, 'telp')
 					@la_input($module, 'fax')
+					@la_input($module, 'telp')
 					--}}
 				</div>
 			</div>
