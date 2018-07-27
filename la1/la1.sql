@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2018 at 10:04 AM
--- Server version: 10.1.33-MariaDB
+-- Generation Time: Jul 16, 2018 at 03:24 PM
+-- Server version: 5.7.19
 -- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -382,15 +382,7 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `parent`, `deleted_at`, `created_at`, `updated_at`, `nama_instansi`) VALUES
 (1, 'SUPER_ADMIN', 'Super Admin', 'Full Access Role', 1, NULL, '2018-07-15 07:17:37', '2018-07-16 02:42:01', 2),
-(2, 'ROLE_TESTER', 'Tester', 'Pengetesan Aplikasi', 1, NULL, '2018-07-16 01:58:30', '2018-07-16 05:46:19', 2),
-(3, 'PJ_PROBIS', 'Inisiator', '', 1, NULL, NULL, NULL, 2),
-(4, 'STAF', 'Init Ops', '', 1, NULL, NULL, NULL, 2),
-(5, 'PJ_SI', 'Project Man', '', 1, NULL, NULL, NULL, 2),
-(6, 'STAF_ANALIS', 'Analyst', '', 1, NULL, NULL, NULL, 2),
-(7, 'STAF_PENGEMBANG', 'Dev', '', 1, NULL, NULL, NULL, 2),
-(8, 'STAF_QC', 'Tester', '', 1, NULL, NULL, NULL, 2),
-(9, 'STAF_DUKTEK', 'Support', '', 1, NULL, NULL, NULL, 2),
-(10, 'PJ_QA', 'QA', '', 1, NULL, NULL, NULL, 2);
+(2, 'ROLE_TESTER', 'Tester', 'Pengetesan Aplikasi', 1, NULL, '2018-07-16 01:58:30', '2018-07-16 05:46:19', 2);
 
 -- --------------------------------------------------------
 
@@ -488,14 +480,14 @@ INSERT INTO `role_module_fields` (`id`, `role_id`, `field_id`, `access`, `create
 (68, 2, 10, 'readonly', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
 (69, 2, 11, 'readonly', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
 (70, 2, 12, 'readonly', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
-(71, 2, 52, 'write', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
-(72, 2, 53, 'write', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
-(73, 2, 54, 'write', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
-(74, 2, 55, 'write', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
-(75, 2, 56, 'write', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
-(76, 2, 59, 'write', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
-(77, 2, 58, 'write', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
-(78, 2, 57, 'write', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
+(71, 2, 52, 'readonly', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
+(72, 2, 53, 'readonly', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
+(73, 2, 54, 'readonly', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
+(74, 2, 55, 'readonly', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
+(75, 2, 56, 'readonly', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
+(76, 2, 59, 'readonly', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
+(77, 2, 58, 'readonly', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
+(78, 2, 57, 'readonly', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
 (79, 2, 30, 'readonly', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
 (80, 2, 31, 'readonly', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
 (81, 2, 32, 'readonly', '2018-07-16 01:58:30', '2018-07-16 01:58:30'),
@@ -581,8 +573,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `context_id`, `email`, `password`, `remember_token`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'admin admin', 1, 'mail.laksana@gmail.com', '$2y$10$6o7MrWPaxCmtWXQG4ErmZencsiS93fh7Z0/uTyScpzZlBr8fejgki', 'KwQQcc7dd3eyw9zaD3DCNaIhe4pbeJJwTuOPdFose1AefpSvwMhiBx11aT8A', NULL, '2018-07-15 07:18:14', '2018-07-16 21:08:22'),
-(2, 'User Tester', 1, 'test@gmail.com', '$2y$10$sieBI6Cx2xmyxCpPb.3Nb.5rKtqNA/.HmKEPi.Gd/pF3NiOn8dAMa', 'nJvNtjg5VxucOuFoEiyRnInGH8dD8R3xAgiNyud2kk36NinPm9DyIAlEnBeO', NULL, '2018-07-16 05:42:57', '2018-07-16 21:08:47');
+(1, 'admin admin', 1, 'mail.laksana@gmail.com', '$2y$10$6o7MrWPaxCmtWXQG4ErmZencsiS93fh7Z0/uTyScpzZlBr8fejgki', 'S2dvFPn1ByTwdDfHGcX8Uc8FgMgQ5XBDfVojHdfBpQs4SiCxgJVtNCEa1Zzv', NULL, '2018-07-15 07:18:14', '2018-07-16 01:02:24'),
+(2, 'User Tester', 1, 'test@gmail.com', '$2y$10$sieBI6Cx2xmyxCpPb.3Nb.5rKtqNA/.HmKEPi.Gd/pF3NiOn8dAMa', 'RgOKpNhWL2xBa8wQMcSQEzkytTGm7CwG4QezDHCCezEVxX65yq7FyT70eqeO', NULL, '2018-07-16 05:42:57', '2018-07-16 05:54:47');
 
 --
 -- Indexes for dumped tables
@@ -760,7 +752,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `role_module`

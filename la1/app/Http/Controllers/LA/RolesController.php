@@ -22,8 +22,8 @@ use App\Models\Role;
 class RolesController extends Controller
 {
 	public $show_action = true;
-	public $view_col = 'name';
-	public $listing_cols = ['id', 'name', 'display_name', 'description', 'parent'];
+	public $view_col = 'nama_instansi';
+	public $listing_cols = ['id', 'name', 'display_name', 'description', 'parent', 'nama_instansi'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns

@@ -160,7 +160,7 @@ $(function () {
             switch (upload.extension) {
                 case "pdf":
                     // TODO: Object PDF
-                    $("#EditFileModal .fileObject").append('<object width="100%" height="100%" data="'+bsurl+'/files/'+upload.hash+'/'+upload.name+'"></object>');
+                    $("#EditFileModal .fileObject").append('<object width="100%" height="325" data="'+bsurl+'/files/'+upload.hash+'/'+upload.name+'"></object>');
                     $("#EditFileModal .fileObject").css("padding", "0px");
                     break;
                 default:
