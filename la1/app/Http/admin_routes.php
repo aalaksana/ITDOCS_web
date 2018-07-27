@@ -86,4 +86,7 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	/* ================== Teams ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/teams', 'LA\TeamsController');
 	Route::get(config('laraadmin.adminRoute') . '/team_dt_ajax', 'LA\TeamsController@dtajax');
+
+	/* ================== Cetak ================== */
+	Route::get(config('laraadmin.adminRoute') . '/projects/cetak/{id}', 'LA\ProjectCetakController@cetakTBS');
 });
