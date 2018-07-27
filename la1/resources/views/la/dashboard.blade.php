@@ -11,7 +11,7 @@
     <div class="callout callout-info">
       <div class="row">
         <div class="col-md-8">
-          <h4 style="position: absolut; top: 10px; left: 10px; font-size: 20px; font-weight: 800;">Proyek Aplikasi Dummy</h4>
+          <h4 style="position: absolut; top: 10px; left: 10px; font-size: 20px; font-weight: 800;">{{$proyek[0]->nama}}</h4>
         </div>
         <div class="col-md-4">
           <div class="btn-group" style="position: absolute; right: 15px;">
@@ -21,9 +21,9 @@
               <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Aplikasi Dummy</a></li>
-              <li><a href="#">Aplikasi Dangdut</a></li>
-              <li><a href="#">Aplikasi Dagang</a></li>
+              @foreach( $datas as $data )
+              <li><a href={{str_replace("index.php","admin/dashboard",$_SERVER["PHP_SELF"])}}/{{$data->id}}> {{$data->nama}} </a></li>
+              @endforeach
             </ul> 
         </div>
         </div>
@@ -45,8 +45,11 @@
     <div class="col-md-4">
       <div class="box box-widget widget-user">
         <div class="widget-user-header" style="padding: 12px; height: 100px; background-color: #109023">
-          <h3 class="widget-user-username" style="font-size: 22px; color: whitesmoke">Andre Hehanusa</h3>
-          <h5 class="widget-user-desc" style="font-size: 10px; color: whitesmoke">NIP 198908012013101002</h5>
+          @if(count($probis)>0)
+          <h3 class="widget-user-username" style="font-size: 22px; color: whitesmoke">{{$probis[0]->name}}</h3>
+          <h5 class="widget-user-desc" style="font-size: 10px; color: whitesmoke">NIP {{$probis[0]->nip}}</h5>
+          @else
+          @endif
         </div>
         <div class="widget-user-image" style="top: 50px;">
           <img class="img-circle" src="../public/la-assets/img/ahe.jpg" alt="user avatar">
@@ -60,8 +63,11 @@
             </div>
             <div class="col-sm-6">
               <div class="description-block" style="text-align: right">
-                <p class="description-header">DJPb</p>
-                <span class="description-text">Direktorat PKN</span>
+                @if(count($probis)>0)
+                <p class="description-header">{{$probis[0]->es1}}</p>
+                <span class="description-text">{{$probis[0]->es2}}</span>
+                @else
+                @endif
               </div>
             </div>
           </div>
@@ -71,8 +77,11 @@
     <div class="col-md-4">
       <div class="box box-widget widget-user">
         <div class="widget-user-header" style="padding: 12px; height: 100px; background-color: #337ab7">
-          <h3 class="widget-user-username" style="font-size: 22px; color: whitesmoke">Bob Tutopoli</h3>
-          <h5 class="widget-user-desc" style="font-size: 10px; color: whitesmoke">NIP 198908012013101002</h5>
+          @if(count($si)>0)
+          <h3 class="widget-user-username" style="font-size: 22px; color: whitesmoke">{{$si[0]->name}}</h3>
+          <h5 class="widget-user-desc" style="font-size: 10px; color: whitesmoke">NIP {{$si[0]->nip}}</h5>
+          @else
+          @endif
         </div>
         <div class="widget-user-image" style="top: 50px;">
           <img class="img-circle" src="../public/la-assets/img/bobtut.jpg" alt="user avatar">
@@ -86,8 +95,11 @@
             </div>
             <div class="col-sm-6">
               <div class="description-block" style="text-align: right">
-                <p class="description-header">DJPb</p>
-                <span class="description-text">Direktorat SITP</span>
+                @if(count($si)>0)
+                <p class="description-header">{{$si[0]->es1}}</p>
+                <span class="description-text">{{$si[0]->es2}}</span>
+                @else
+                @endif
               </div>
             </div>
           </div>
@@ -97,8 +109,11 @@
     <div class="col-md-4">
       <div class="box box-widget widget-user">
         <div class="widget-user-header" style="padding: 12px; height: 100px; background-color: #ce7f03">
-          <h3 class="widget-user-username" style="font-size: 22px; color: whitesmoke">Siti Badriah</h3>
-          <h5 class="widget-user-desc" style="font-size: 10px; color: whitesmoke">NIP 198908012013102002</h5>
+          @if(count($qa)>0)
+          <h3 class="widget-user-username" style="font-size: 22px; color: whitesmoke">{{$qa[0]->name}}</h3>
+          <h5 class="widget-user-desc" style="font-size: 10px; color: whitesmoke">NIP {{$qa[0]->nip}}</h5>
+          @else
+          @endif
         </div>
         <div class="widget-user-image" style="top: 50px;">
           <img class="img-circle" src="../public/la-assets/img/badsit.jpg" alt="user avatar">
@@ -112,8 +127,11 @@
             </div>
             <div class="col-sm-6">
               <div class="description-block" style="text-align: right">
-                <p class="description-header">Itjen Kemenkeu</p>
-                <span class="description-text">Inspektorat VII</span>
+                @if(count($qa)>0)
+                <p class="description-header">{{$qa[0]->es1}}</p>
+                <span class="description-text">{{$qa[0]->es2}}</span>
+                @else
+                @endif
               </div>
             </div>
           </div>
@@ -127,9 +145,10 @@
         </div>
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
-            <li><a href="/Doku/Dok 0. 20151106 Dokumen Kebutuhan Pengguna.docx" target="_blank">Dokumen 0</a></li>
-            <li><a href="/Doku/Dok 1. 20151106 Dokumen Analisis dan Spesifikasi Kebutuhan.docx" target="_blank">Dokumen 1</a></li>
-            <li><a href="/Doku/Dok 2. 20151106 Dokumen Perubahan Analisis dan Spesifikasi Kebutuhan.docx" target="_blank">Dokumen 2</a></li>
+            @foreach($Danalis as $danalis)
+            <li><a href="#" target="_blank">{{$danalis->jenis}}</a></li>
+            @endforeach
+
           </ul>
         </div>
       </div>
@@ -141,8 +160,9 @@
         </div>
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
-            <li><a href="/Doku/Dok 3. 20151106 Dokumen Rancangan Tingkat Tinggi.docx" target="_blank">Dokumen 3</a></li>
-            <li><a href="/Doku/Dok 4. 20151106 Dokumen Rancangan Rinci.docx" target="_blank">Dokumen 4</a></li>
+            @foreach($Drancang as $drancang)
+            <li><a href="#" target="_blank">{{$drancang->jenis}}</a></li>
+            @endforeach
           </ul>
         </div>
       </div>
@@ -154,10 +174,9 @@
         </div>
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
-            <li><a href="/Doku/Dok 5. 20151106 Dokumen Pengembangan Sistem Informasi.docx" target="_blank">Dokumen 5</a></li>
-            <li><a href="/Doku/Dok 6. 20151106 Formulir Permintaan Perubahan dan Persetujuan.docx" target="_blank">Dokumen 6</a></li>
-            <li><a href="/Doku/Dok 7. 20151106 Dokumen Rencana dan Skenario Pengujian.docx" target="_blank">Dokumen 7</a></li>
-            <li><a href="/Doku/Dok 7.0 20151106 Formulir Permintaan Pengendalian Mutu Aplikasi.docx" target="_blank">Dokumen 7.0</a></li>
+            @foreach($Dkembang as $dkembang)
+            <li><a href="#" target="_blank">{{$dkembang->jenis}}</a></li>
+            @endforeach
           </ul>
         </div>
       </div>
@@ -169,10 +188,9 @@
         </div>
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
-            <li><a href="/Doku/Dok 7.1. 20151106 Dokumen Pengendalian Mutu.docx" target="_blank">Dokumen 7.1</a></li>
-            <li><a href="/Doku/Dok 8. 20151106 Dokumen Hasil Pengujian oleh Pengguna.docx" target="_blank">Dokumen 8</a></li>
-            <li><a href="/Doku/Dok 8.1 20151106 Form Pengujian oleh Pengguna.docx" target="_blank">Dokumen 8.1</a></li>
-            <li><a href="/Doku/Dok 9. 20151106 Dokumen Analisis Hasil Pengujian.docx" target="_blank">Dokumen 9</a></li>
+            @foreach($Duji as $duji)
+            <li><a href="#" target="_blank">{{$duji->jenis}}</a></li>
+            @endforeach
           </ul>
         </div>
       </div>
@@ -184,10 +202,9 @@
         </div>
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
-            <li><a href="/Doku/Dok 3. 20151106 Dokumen Rancangan Tingkat Tinggi.docx" target="_blank">Dokumen 10</a></li>
-            <li><a href="/Doku/Dok 4. 20151106 Dokumen Rancangan Rinci.docx" target="_blank">Dokumen 11</a></li>
-            <li><a href="/Doku/Dok 3. 20151106 Dokumen Rancangan Tingkat Tinggi.docx" target="_blank">Dokumen 12</a></li>
-            <li>Dokumen 13</li>
+            @foreach($Dimplemen as $dimplemen)
+            <li><a href="#" target="_blank">{{$dimplemen->jenis}}</a></li>
+            @endforeach
           </ul>
         </div>
       </div>
@@ -199,8 +216,9 @@
         </div>
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
-            <li>Dokumen 14</li>
-            <li>Dokumen 15</li>
+            @foreach($Dpcim as $dpcim)
+            <li><a href="#" target="_blank">{{$dpcim->jenis}}</a></li>
+            @endforeach
           </ul>
         </div>
       </div>
