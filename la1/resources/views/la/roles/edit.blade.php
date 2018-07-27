@@ -37,7 +37,6 @@
 					@la_input($module, 'display_name')
 					@la_input($module, 'description')
 					@la_input($module, 'parent')
-					@la_input($module, 'nama_instansi')
 					--}}
                     <br>
 					<div class="form-group">

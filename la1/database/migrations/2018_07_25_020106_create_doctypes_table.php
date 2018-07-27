@@ -8,7 +8,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Dwij\Laraadmin\Models\Module;
 
-class CreateRolesTable extends Migration
+class CreateDoctypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,11 +17,10 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Module::generate("Roles", 'roles', 'name', 'fa-user-plus', [
-            ["name", "Nama Role", "Name", false, "", 1, 250, true],
-            ["display_name", "Label", "String", false, "", 0, 250, false],
-            ["description", "Deskripsi", "Textarea", false, "", 0, 1000, false],
-            ["parent", "Parent Role", "Dropdown", false, "1", 0, 0, false, "@roles"],
+        Module::generate("Doctypes", 'doctypes', 'jenis', 'fa-code-fork', [
+            ["jenis", "Jenis Dokumen", "Name", false, "", 0, 32, false],
+            ["role", "Role Upload", "Dropdown", false, "", 0, 0, false, "@roles"],
+            ["tahap", "Tahap", "Name", false, "", 0, 64, false],
         ]);
 		
 		/*
@@ -67,8 +66,8 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        if (Schema::hasTable('roles')) {
-            Schema::drop('roles');
+        if (Schema::hasTable('doctypes')) {
+            Schema::drop('doctypes');
         }
     }
 }

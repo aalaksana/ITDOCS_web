@@ -8,7 +8,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Dwij\Laraadmin\Models\Module;
 
-class CreateRolesTable extends Migration
+class CreateTeamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,11 +17,12 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Module::generate("Roles", 'roles', 'name', 'fa-user-plus', [
-            ["name", "Nama Role", "Name", false, "", 1, 250, true],
-            ["display_name", "Label", "String", false, "", 0, 250, false],
-            ["description", "Deskripsi", "Textarea", false, "", 0, 1000, false],
-            ["parent", "Parent Role", "Dropdown", false, "1", 0, 0, false, "@roles"],
+        Module::generate("Teams", 'teams', 'nama', 'fa-cube', [
+            ["nama", "Nama Tim", "Name", false, "", 0, 150, false],
+            ["project_id", "proyek", "Dropdown", false, "", 0, 0, false, "@projects"],
+            ["peran", "Peran", "Dropdown", false, "", 0, 0, false, ["Proses Bisnis","Pengembang SI","Tim QA"]],
+            ["nama_pj", "Penanggung jawab", "Dropdown", false, "", 0, 0, false, "@users"],
+            ["staf", "Staf", "Multiselect", false, "", 0, 0, false, "@users"],
         ]);
 		
 		/*
@@ -67,8 +68,8 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        if (Schema::hasTable('roles')) {
-            Schema::drop('roles');
+        if (Schema::hasTable('teams')) {
+            Schema::drop('teams');
         }
     }
 }
