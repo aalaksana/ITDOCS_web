@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
-@section("contentheader_title", "Users")
-@section("contentheader_description", "Users listing")
-@section("section", "Users")
+@section("contentheader_title", "Teams")
+@section("contentheader_description", "Teams listing")
+@section("section", "Teams")
 @section("sub_section", "Listing")
-@section("htmlheader_title", "Users Listing")
+@section("htmlheader_title", "Teams Listing")
 
 @section("headerElems")
-@la_access("Users", "create")
-	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add User</button>
+@la_access("Teams", "create")
+	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Team</button>
 @endla_access
 @endsection
 
@@ -45,25 +45,25 @@
 	</div>
 </div>
 
-@la_access("Users", "create")
+@la_access("Teams", "create")
 <div class="modal fade" id="AddModal" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Add User</h4>
+				<h4 class="modal-title" id="myModalLabel">Add Team</h4>
 			</div>
-			{!! Form::open(['action' => 'LA\UsersController@store', 'id' => 'user-add-form']) !!}
+			{!! Form::open(['action' => 'LA\TeamsController@store', 'id' => 'team-add-form']) !!}
 			<div class="modal-body">
 				<div class="box-body">
                     @la_form($module)
 					
 					{{--
-					@la_input($module, 'name')
-					@la_input($module, 'nip')
-					@la_input($module, 'email')
-					@la_input($module, 'password')
-					@la_input($module, 'instansi')
+					@la_input($module, 'nama')
+					@la_input($module, 'project_id')
+					@la_input($module, 'peran')
+					@la_input($module, 'nama_pj')
+					@la_input($module, 'staf')
 					--}}
 				</div>
 			</div>
@@ -90,7 +90,7 @@ $(function () {
 	$("#example1").DataTable({
 		processing: true,
         serverSide: true,
-        ajax: "{{ url(config('laraadmin.adminRoute') . '/user_dt_ajax') }}",
+        ajax: "{{ url(config('laraadmin.adminRoute') . '/team_dt_ajax') }}",
 		language: {
 			lengthMenu: "_MENU_",
 			search: "_INPUT_",
@@ -100,7 +100,7 @@ $(function () {
 		columnDefs: [ { orderable: false, targets: [-1] }],
 		@endif
 	});
-	$("#user-add-form").validate({
+	$("#team-add-form").validate({
 		
 	});
 });
