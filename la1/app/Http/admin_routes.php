@@ -70,4 +70,20 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	Route::resource(config('laraadmin.adminRoute') . '/departments', 'LA\DepartmentsController');
 	Route::get(config('laraadmin.adminRoute') . '/department_dt_ajax', 'LA\DepartmentsController@dtajax');
 	
+
+	/* ================== Projects ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/projects', 'LA\ProjectsController');
+	Route::get(config('laraadmin.adminRoute') . '/project_dt_ajax', 'LA\ProjectsController@dtajax');
+
+	/* ================== Dokumens ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/dokumens', 'LA\DokumensController');
+	Route::get(config('laraadmin.adminRoute') . '/dokumen_dt_ajax', 'LA\DokumensController@dtajax');
+
+	/* ================== Doctypes ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/doctypes', 'LA\DoctypesController');
+	Route::get(config('laraadmin.adminRoute') . '/doctype_dt_ajax', 'LA\DoctypesController@dtajax');
+
+	/* ================== Teams ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/teams', 'LA\TeamsController');
+	Route::get(config('laraadmin.adminRoute') . '/team_dt_ajax', 'LA\TeamsController@dtajax');
 });
