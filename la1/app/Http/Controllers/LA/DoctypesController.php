@@ -17,37 +17,37 @@ use Collective\Html\FormFacade as Form;
 use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 
-use App\Models\User;
+use App\Models\Doctype;
 
-class UsersController extends Controller
+class DoctypesController extends Controller
 {
 	public $show_action = true;
-	public $view_col = 'name';
-	public $listing_cols = ['id', 'name', 'nip', 'email', 'password', 'instansi'];
+	public $view_col = 'jenis';
+	public $listing_cols = ['id', 'jenis', 'role', 'tahap'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
 		if(\Dwij\Laraadmin\Helpers\LAHelper::laravel_ver() == 5.3) {
 			$this->middleware(function ($request, $next) {
-				$this->listing_cols = ModuleFields::listingColumnAccessScan('Users', $this->listing_cols);
+				$this->listing_cols = ModuleFields::listingColumnAccessScan('Doctypes', $this->listing_cols);
 				return $next($request);
 			});
 		} else {
-			$this->listing_cols = ModuleFields::listingColumnAccessScan('Users', $this->listing_cols);
+			$this->listing_cols = ModuleFields::listingColumnAccessScan('Doctypes', $this->listing_cols);
 		}
 	}
 	
 	/**
-	 * Display a listing of the Users.
+	 * Display a listing of the Doctypes.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index()
 	{
-		$module = Module::get('Users');
+		$module = Module::get('Doctypes');
 		
 		if(Module::hasAccess($module->id)) {
-			return View('la.users.index', [
+			return View('la.doctypes.index', [
 				'show_actions' => $this->show_action,
 				'listing_cols' => $this->listing_cols,
 				'module' => $module
@@ -58,7 +58,7 @@ class UsersController extends Controller
 	}
 
 	/**
-	 * Show the form for creating a new user.
+	 * Show the form for creating a new doctype.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
@@ -68,16 +68,16 @@ class UsersController extends Controller
 	}
 
 	/**
-	 * Store a newly created user in database.
+	 * Store a newly created doctype in database.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request)
 	{
-		if(Module::hasAccess("Users", "create")) {
+		if(Module::hasAccess("Doctypes", "create")) {
 		
-			$rules = Module::validateRules("Users", $request);
+			$rules = Module::validateRules("Doctypes", $request);
 			
 			$validator = Validator::make($request->all(), $rules);
 			
@@ -85,9 +85,9 @@ class UsersController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput();
 			}
 			
-			$insert_id = Module::insert("Users", $request);
+			$insert_id = Module::insert("Doctypes", $request);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.users.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.doctypes.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -95,30 +95,30 @@ class UsersController extends Controller
 	}
 
 	/**
-	 * Display the specified user.
+	 * Display the specified doctype.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id)
 	{
-		if(Module::hasAccess("Users", "view")) {
+		if(Module::hasAccess("Doctypes", "view")) {
 			
-			$user = User::find($id);
-			if(isset($user->id)) {
-				$module = Module::get('Users');
-				$module->row = $user;
+			$doctype = Doctype::find($id);
+			if(isset($doctype->id)) {
+				$module = Module::get('Doctypes');
+				$module->row = $doctype;
 				
-				return view('la.users.show', [
+				return view('la.doctypes.show', [
 					'module' => $module,
 					'view_col' => $this->view_col,
 					'no_header' => true,
 					'no_padding' => "no-padding"
-				])->with('user', $user);
+				])->with('doctype', $doctype);
 			} else {
 				return view('errors.404', [
 					'record_id' => $id,
-					'record_name' => ucfirst("user"),
+					'record_name' => ucfirst("doctype"),
 				]);
 			}
 		} else {
@@ -127,28 +127,28 @@ class UsersController extends Controller
 	}
 
 	/**
-	 * Show the form for editing the specified user.
+	 * Show the form for editing the specified doctype.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit($id)
 	{
-		if(Module::hasAccess("Users", "edit")) {			
-			$user = User::find($id);
-			if(isset($user->id)) {	
-				$module = Module::get('Users');
+		if(Module::hasAccess("Doctypes", "edit")) {			
+			$doctype = Doctype::find($id);
+			if(isset($doctype->id)) {	
+				$module = Module::get('Doctypes');
 				
-				$module->row = $user;
+				$module->row = $doctype;
 				
-				return view('la.users.edit', [
+				return view('la.doctypes.edit', [
 					'module' => $module,
 					'view_col' => $this->view_col,
-				])->with('user', $user);
+				])->with('doctype', $doctype);
 			} else {
 				return view('errors.404', [
 					'record_id' => $id,
-					'record_name' => ucfirst("user"),
+					'record_name' => ucfirst("doctype"),
 				]);
 			}
 		} else {
@@ -157,7 +157,7 @@ class UsersController extends Controller
 	}
 
 	/**
-	 * Update the specified user in storage.
+	 * Update the specified doctype in storage.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @param  int  $id
@@ -165,9 +165,9 @@ class UsersController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		if(Module::hasAccess("Users", "edit")) {
+		if(Module::hasAccess("Doctypes", "edit")) {
 			
-			$rules = Module::validateRules("Users", $request, true);
+			$rules = Module::validateRules("Doctypes", $request, true);
 			
 			$validator = Validator::make($request->all(), $rules);
 			
@@ -175,9 +175,9 @@ class UsersController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput();;
 			}
 			
-			$insert_id = Module::updateRow("Users", $request, $id);
+			$insert_id = Module::updateRow("Doctypes", $request, $id);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.users.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.doctypes.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -185,18 +185,18 @@ class UsersController extends Controller
 	}
 
 	/**
-	 * Remove the specified user from storage.
+	 * Remove the specified doctype from storage.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function destroy($id)
 	{
-		if(Module::hasAccess("Users", "delete")) {
-			User::find($id)->delete();
+		if(Module::hasAccess("Doctypes", "delete")) {
+			Doctype::find($id)->delete();
 			
 			// Redirecting to index() method
-			return redirect()->route(config('laraadmin.adminRoute') . '.users.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.doctypes.index');
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
 		}
@@ -209,11 +209,11 @@ class UsersController extends Controller
 	 */
 	public function dtajax()
 	{
-		$values = DB::table('users')->select($this->listing_cols)->whereNull('deleted_at');
+		$values = DB::table('doctypes')->select($this->listing_cols)->whereNull('deleted_at');
 		$out = Datatables::of($values)->make();
 		$data = $out->getData();
 
-		$fields_popup = ModuleFields::getModuleFields('Users');
+		$fields_popup = ModuleFields::getModuleFields('Doctypes');
 		
 		for($i=0; $i < count($data->data); $i++) {
 			for ($j=0; $j < count($this->listing_cols); $j++) { 
@@ -222,7 +222,7 @@ class UsersController extends Controller
 					$data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
 				}
 				if($col == $this->view_col) {
-					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/users/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
+					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/doctypes/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
 				}
 				// else if($col == "author") {
 				//    $data->data[$i][$j];
@@ -231,12 +231,12 @@ class UsersController extends Controller
 			
 			if($this->show_action) {
 				$output = '';
-				if(Module::hasAccess("Users", "edit")) {
-					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/users/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
+				if(Module::hasAccess("Doctypes", "edit")) {
+					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/doctypes/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
 				}
 				
-				if(Module::hasAccess("Users", "delete")) {
-					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.users.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
+				if(Module::hasAccess("Doctypes", "delete")) {
+					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.doctypes.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
 					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
 					$output .= Form::close();
 				}
