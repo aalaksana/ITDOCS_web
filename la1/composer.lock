@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2a296a78cca4389297e790d156d653d",
+    "content-hash": "dc5c9295af8174f5415e2e21794718bb",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -493,49 +493,6 @@
                 "php"
             ],
             "time": "2016-10-26T11:33:21+00:00"
-        },
-        {
-            "name": "elmarculino/tinybutstrong",
-            "version": "3.10.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/elmarculino/TinyButStrong.git",
-                "reference": "b4c2050d312e0795c1641199c19b43db975d93ad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/elmarculino/TinyButStrong/zipball/b4c2050d312e0795c1641199c19b43db975d93ad",
-                "reference": "b4c2050d312e0795c1641199c19b43db975d93ad",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "tbs_class.php",
-                    "tbs_plugin_opentbs.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL"
-            ],
-            "authors": [
-                {
-                    "name": "elmarculino",
-                    "email": "elmarculino@gmail.com"
-                }
-            ],
-            "description": "TinyButStrong is a library that enables you to dynamically create XML/HTML pages and any other files based on text source. It's a Template Engine for the PHP language. It enables you to easily display information from your database, but also to seriously harmonize and simplify your PHP programming. OpenTBS is a PHP tool that easily merges both OpenOffice and Ms Office documents. In fact it can merge any XML or Text file saved in a zip container.",
-            "homepage": "http://www.tinybutstrong.com/",
-            "keywords": [
-                "OpenTBS",
-                "TinyButStrong",
-                "open-tbs"
-            ],
-            "time": "2015-11-26T01:21:57+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
