@@ -52,7 +52,7 @@
           @endif
         </div>
         <div class="widget-user-image" style="top: 50px;">
-          <img class="img-circle" src="/la-assets/img/ahe.jpg" alt="user avatar">
+          <img class="img-circle" src="../public/la-assets/img/ahe.jpg" alt="user avatar">
         </div>
         <div class="box-footer">
           <div class="row">
@@ -84,7 +84,7 @@
           @endif
         </div>
         <div class="widget-user-image" style="top: 50px;">
-          <img class="img-circle" src="/la-assets/img/bobtut.jpg" alt="user avatar">
+          <img class="img-circle" src="../public/la-assets/img/bobtut.jpg" alt="user avatar">
         </div>
         <div class="box-footer">
           <div class="row">
@@ -116,7 +116,7 @@
           @endif
         </div>
         <div class="widget-user-image" style="top: 50px;">
-          <img class="img-circle" src="/la-assets/img/badsit.jpg" alt="user avatar">
+          <img class="img-circle" src="../public/la-assets/img/badsit.jpg" alt="user avatar">
         </div>
         <div class="box-footer">
           <div class="row">
@@ -146,7 +146,7 @@
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
             @foreach($Danalis as $danalis)
-            <li><a href={{str_replace(' ', '%20',$danalis->file)}} target="_blank">{{$danalis->jenis}}</a></li>
+            <li><a href="#" target="_blank">{{$danalis->jenis}}</a></li>
             @endforeach
 
           </ul>
@@ -161,7 +161,7 @@
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
             @foreach($Drancang as $drancang)
-            <li><a href={{str_replace(' ', '%20',$drancang->file)}} target="_blank">{{$drancang->jenis}}</a></li>
+            <li><a href="#" target="_blank">{{$drancang->jenis}}</a></li>
             @endforeach
           </ul>
         </div>
@@ -175,7 +175,7 @@
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
             @foreach($Dkembang as $dkembang)
-            <li><a href={{str_replace(' ', '%20',$dkembang->file)}} target="_blank">{{$dkembang->jenis}}</a></li>
+            <li><a href="#" target="_blank">{{$dkembang->jenis}}</a></li>
             @endforeach
           </ul>
         </div>
@@ -189,7 +189,7 @@
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
             @foreach($Duji as $duji)
-            <li><a href={{str_replace(' ', '%20',$duji->file)}} target="_blank">{{$duji->jenis}}</a></li>
+            <li><a href="#" target="_blank">{{$duji->jenis}}</a></li>
             @endforeach
           </ul>
         </div>
@@ -203,7 +203,7 @@
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
             @foreach($Dimplemen as $dimplemen)
-            <li><a href={{str_replace(' ', '%20',$dimplemen->file)}} target="_blank">{{$dimplemen->jenis}}</a></li>
+            <li><a href="#" target="_blank">{{$dimplemen->jenis}}</a></li>
             @endforeach
           </ul>
         </div>
@@ -217,7 +217,7 @@
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
             @foreach($Dpcim as $dpcim)
-            <li><a href={{str_replace(' ', '%20',$dpcim->file)}} target="_blank">{{$dpcim->jenis}}</a></li>
+            <li><a href="#" target="_blank">{{$dpcim->jenis}}</a></li>
             @endforeach
           </ul>
         </div>

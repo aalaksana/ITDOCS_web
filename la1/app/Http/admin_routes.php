@@ -28,11 +28,14 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	
 	Route::get(config('laraadmin.adminRoute'), 'LA\DashboardController@index');
 	Route::get(config('laraadmin.adminRoute'). '/dashboard', 'LA\DashboardController@index');
-	Route::resource(config('laraadmin.adminRoute'). '/dashboard', 'LA\DashboardController');
 	
 	/* ================== Users ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/users', 'LA\UsersController');
 	Route::get(config('laraadmin.adminRoute') . '/user_dt_ajax', 'LA\UsersController@dtajax');
+	Route::get('rekam', function()
+	{
+		return view('la.rekam');
+	});
 	
 	/* ================== Uploads ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/uploads', 'LA\UploadsController');
@@ -83,4 +86,7 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	/* ================== Teams ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/teams', 'LA\TeamsController');
 	Route::get(config('laraadmin.adminRoute') . '/team_dt_ajax', 'LA\TeamsController@dtajax');
+
+	/* ================== Cetak ================== */
+	Route::get(config('laraadmin.adminRoute') . '/projects/cetak/{id}', 'LA\ProjectCetakController@cetakTBS');
 });
