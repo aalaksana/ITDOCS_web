@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Upload extends Model
 {
-    use SoftDeletes;
+    // use SoftDeletes;
 	
 	protected $table = 'uploads';
 	
