@@ -57,12 +57,6 @@
 						@la_display($module, 'instansi')
 						@la_display($module, 'deskripsi')
 						@la_display($module, 'start_date')
-						@la_display($module, 'analisa')
-						@la_display($module, 'perancangan')
-						@la_display($module, 'pengembangan')
-						@la_display($module, 'pengujian')
-						@la_display($module, 'implementasi')
-						@la_display($module, 'pc_implemen')
 							
 					</div>					 
 				</div>
