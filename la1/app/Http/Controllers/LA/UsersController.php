@@ -86,7 +86,7 @@ class UsersController extends Controller
 			}
 			
 			$insert_id = Module::insert("Users", $request);
-			
+			DB::insert("insert into role_user (user_id,role_id) values (".$insert_id.",10)");
 			return redirect()->route(config('laraadmin.adminRoute') . '.users.index');
 			
 		} else {

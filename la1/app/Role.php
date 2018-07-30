@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Role extends EntrustRole
 {
-    use SoftDeletes;
+    // use SoftDeletes;
 	
 	protected $table = 'roles';
 	
