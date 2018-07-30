@@ -1,14 +1,13 @@
 @extends("la.layouts.app")
-
-@section("contentheader_title", "Dokumens")
-@section("contentheader_description", "Dokumens listing")
+@section("contentheader_title", "Dokumen")
+@section("contentheader_description", "Daftar Dokumen")
 @section("section", "Dokumens")
 @section("sub_section", "Listing")
-@section("htmlheader_title", "Dokumens Listing")
+@section("htmlheader_title", "Daftar Dokumen")
 
 @section("headerElems")
 @la_access("Dokumens", "create")
-	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Dokumen</button>
+	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Tambah Dokumen</button>
 @endla_access
 @endsection
 
@@ -51,7 +50,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Add Dokumen</h4>
+				<h4 class="modal-title" id="myModalLabel">Tambah Dokumen</h4>
 			</div>
 			{!! Form::open(['action' => 'LA\DokumensController@store', 'id' => 'dokumen-add-form']) !!}
 			<div class="modal-body">

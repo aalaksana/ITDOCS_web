@@ -11,5 +11,5 @@ elseif ($tombols[0]->analisa=='diajukan' && $role[0]->id==$tombols[0]->inisiator
 }
 
 ?>
-<button class="btn btn-success btn-sm">{{$label}}</button>
-<button class="btn btn-danger btn-sm">Tolak</button>
+<button class="btn btn-success btn-sm pull-right">{{$label}}</button>
+<button class="btn btn-danger btn-sm pull-right">Tolak</button>

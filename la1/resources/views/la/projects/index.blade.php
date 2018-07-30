@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
-@section("contentheader_title", "Projects")
-@section("contentheader_description", "Projects listing")
+@section("contentheader_title", "Proyek")
+@section("contentheader_description", "Daftar Proyek")
 @section("section", "Projects")
 @section("sub_section", "Listing")
 @section("htmlheader_title", "Projects Listing")
 
 @section("headerElems")
 @la_access("Projects", "create")
-	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Project</button>
+	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Tambah Proyek</button>
 @endla_access
 @endsection
 
@@ -51,7 +51,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Add Project</h4>
+				<h4 class="modal-title" id="myModalLabel">Tambah Poyek</h4>
 			</div>
 			{!! Form::open(['action' => 'LA\ProjectsController@store', 'id' => 'project-add-form']) !!}
 			<div class="modal-body">
