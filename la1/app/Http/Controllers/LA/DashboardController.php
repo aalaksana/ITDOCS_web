@@ -44,9 +44,9 @@ class DashboardController extends Controller
         $datas = DB::select("Select * from projects");
 
         $proyek = DB::select("select p.nama, p.status, 
-            ifnull((select t.nama_pj from teams t where t.peran='Proses Bisnis' and p.id=t.project_id ),0) as id_probis, 
-            ifnull((select t.nama_pj from teams t where t.peran='Pengembang SI' and p.id=t.project_id ),0) as id_si, 
-            ifnull((select t.nama_pj from teams t where t.peran='Tim QA' and p.id=t.project_id ),0) as id_qa from projects p where p.id=".$id);
+            ifnull((select t.nama_pj from teams t where t.peran='Proses Bisnis' and p.id=t.project_id limit 1),0) as id_probis, 
+            ifnull((select t.nama_pj from teams t where t.peran='Pengembang SI' and p.id=t.project_id limit 1),0) as id_si, 
+            ifnull((select t.nama_pj from teams t where t.peran='Tim QA' and p.id=t.project_id limit 1),0) as id_qa from projects p where p.id=".$id);
         $probis = DB::select("select u.name, u.nip, d.nama_instansi, d.es1,d.es2 from users u, departments d
             where u.instansi=d.id and u.id=".$proyek[0]->id_probis);
         $si = DB::select("select u.name, u.nip, d.nama_instansi, d.es1,d.es2 from users u, departments d
