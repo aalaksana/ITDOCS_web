@@ -129,8 +129,17 @@ class ProjectsController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show($id)
-	{
+	public function show($id2)
+	{	$id=str_replace(array("setuj","batal"),"",$id2);
+		$aksi=substr($id2,0,5);
+		if($aksi=="setuj"){
+			DB::update("update projects set status=status+1 where id=".$id);
+			return redirect(config('laraadmin.adminRoute')."/projects/".$id);
+		}
+		if($aksi=="batal"){
+			DB::update("update projects set status=status-1 where id=".$id);
+			return redirect(config('laraadmin.adminRoute')."/projects/".$id);
+		}
 		if(Module::hasAccess("Projects", "view")) {
 			
 			$project = Project::find($id);
