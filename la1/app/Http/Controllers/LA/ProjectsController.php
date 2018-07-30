@@ -60,7 +60,7 @@ class ProjectsController extends Controller
 				'project' => $p));
 	return $query;
 	}
-	/**END --UPDATE HISTORY-AALAKSANA**/
+/**END --UPDATE HISTORY-AALAKSANA**/
 
 	
 	

@@ -86,7 +86,7 @@ class DokumensController extends Controller
 			}
 			
 			$insert_id = Module::insert("Dokumens", $request);
-			
+			DB::update("update dokumens set uploaded_by=".$user=Auth::user()->id." where id=".$insert_id);
 			return redirect()->route(config('laraadmin.adminRoute') . '.dokumens.index');
 			
 		} else {
