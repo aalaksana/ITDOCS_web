@@ -52,7 +52,7 @@
           @endif
         </div>
         <div class="widget-user-image" style="top: 50px;">
-          <img class="img-circle" src="/la-assets/img/ahe.jpg" alt="user avatar">
+          <img class="img-circle" src={{str_replace("index.php","",$_SERVER["PHP_SELF"])}}./la-assets/img/ahe.jpg alt="user avatar">
         </div>
         <div class="box-footer">
           <div class="row">
@@ -84,7 +84,7 @@
           @endif
         </div>
         <div class="widget-user-image" style="top: 50px;">
-          <img class="img-circle" src="/la-assets/img/bobtut.jpg" alt="user avatar">
+          <img class="img-circle" src={{str_replace("index.php","",$_SERVER["PHP_SELF"])}}./la-assets/img/bobtut.jpg alt="user avatar">
         </div>
         <div class="box-footer">
           <div class="row">
@@ -116,7 +116,7 @@
           @endif
         </div>
         <div class="widget-user-image" style="top: 50px;">
-          <img class="img-circle" src="/la-assets/img/badsit.jpg" alt="user avatar">
+          <img class="img-circle" src={{str_replace("index.php","",$_SERVER["PHP_SELF"])}}./la-assets/img/badsit.jpg alt="user avatar">
         </div>
         <div class="box-footer">
           <div class="row">

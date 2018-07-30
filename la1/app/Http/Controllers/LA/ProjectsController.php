@@ -23,7 +23,7 @@ class ProjectsController extends Controller
 {
 	public $show_action = true;
 	public $view_col = 'nama';
-	public $listing_cols = ['id', 'nama', 'dasar', 'inisiator', 'instansi', 'deskripsi', 'start_date', 'analisa', 'perancangan', 'pengembangan', 'pengujian', 'implementasi', 'pc_implemen'];
+	public $listing_cols = ['id', 'nama', 'dasar', 'inisiator', 'instansi', 'deskripsi', 'start_date', 'status'];
 	
 
 	
