@@ -44,9 +44,9 @@ class DashboardController extends Controller
         $datas = DB::select("Select * from projects");
 
         $proyek = DB::select("select p.nama, p.status, 
-            ifnull((select t.nama_pj from teams t where t.peran='Proses Bisnis' and p.id=t.project_id ),0) as id_probis, 
-            ifnull((select t.nama_pj from teams t where t.peran='Pengembang SI' and p.id=t.project_id ),0) as id_si, 
-            ifnull((select t.nama_pj from teams t where t.peran='Tim QA' and p.id=t.project_id ),0) as id_qa from projects p where p.id=".$id);
+            ifnull((select t.nama_pj from teams t where t.peran='Proses Bisnis' and p.id=t.project_id limit 1),0) as id_probis, 
+            ifnull((select t.nama_pj from teams t where t.peran='Pengembang SI' and p.id=t.project_id limit 1),0) as id_si, 
+            ifnull((select t.nama_pj from teams t where t.peran='Tim QA' and p.id=t.project_id limit 1),0) as id_qa from projects p where p.id=".$id);
         $probis = DB::select("select u.name, u.nip, d.nama_instansi, d.es1,d.es2 from users u, departments d
             where u.instansi=d.id and u.id=".$proyek[0]->id_probis);
         $si = DB::select("select u.name, u.nip, d.nama_instansi, d.es1,d.es2 from users u, departments d
@@ -71,6 +71,21 @@ class DashboardController extends Controller
         $Dpcim = DB::select("select d.jenis, concat('/files/',u.hash,'/',u.name) as file from dokumens d , doctypes t, uploads u
             where d.jenis=t.jenis and t.tahap='Pasca Implementasi' 
             and d.file=u.id and project_id=".$id." order by d.jenis");
+        $Progress = DB::select("select a.status from projects a where id=".$id);
+
+        if ($Progress[0]->status == 1){
+            $status='Analisa Kebutuhan';
+        } elseif ($Progress[0]->status == 2){
+            $status='Perancangan';
+        } elseif ($Progress[0]->status == 3){
+            $status='Pengembangan';
+        } elseif ($Progress[0]->status == 4){
+            $status='Pengujian';
+        } elseif ($Progress[0]->status == 5){
+            $status='Implementasi';
+        } elseif ($Progress[0]->status == 6){
+            $status='Pasca Implementasi';
+        } else $status='Pengajuan';
 
         // $img = Upload::find(2);
         
@@ -88,7 +103,8 @@ class DashboardController extends Controller
                 'Dkembang' => $Dkembang,
                 'Duji' => $Duji,
                 'Dimplemen' => $Dimplemen,
-                'Dpcim' => $Dpcim
+                'Dpcim' => $Dpcim,
+                'status' => $status
             ]);       
 
         
