@@ -176,13 +176,13 @@ class UploadsController extends Controller
 				if( $upload_success ) {
 	
 					// Get public preferences
-					// config("laraadmin.uploads.default_public")
-					$public = Input::get('public');
-					if(isset($public)) {
-						$public = true;
-					} else {
-						$public = false;
-					}
+					// config("laraadmin.uploads.default_public");
+					// $public = Input::get('public');
+					// if(isset($public)) {
+					// 	$public = true;
+					// } else {
+					// 	$public = false;
+					// }
 	
 					$upload = Upload::create([
 						"name" => $filename,
@@ -190,7 +190,7 @@ class UploadsController extends Controller
 						"extension" => pathinfo($filename, PATHINFO_EXTENSION),
 						"caption" => "",
 						"hash" => "",
-						"public" => $public,
+						"public" => true,
 						"user_id" => Auth::user()->id
 					]);
 					// apply unique random hash to file
@@ -231,19 +231,19 @@ class UploadsController extends Controller
     public function uploaded_files()
     {
 		if(Module::hasAccess("Uploads", "view")) {
-			$uploads = array();
+			$uploads = DB::SELECT("SELECT * from uploads where user_id=".Auth::user()->id."  and id not in(select file from dokumens) order by created_at desc limit 1");
 	
 			// print_r(Auth::user()->roles);
-			if(Entrust::hasRole('SUPER_ADMIN')) {
-				$uploads = Upload::all();
-			} else {
-				if(config('laraadmin.uploads.private_uploads')) {
-					// Upload::where('user_id', 0)->first();
-					$uploads = Auth::user()->uploads;
-				} else {
-					$uploads = Upload::all();
-				}
-			}
+			// if(Entrust::hasRole('SUPER_ADMIN')) {
+			// 	$uploads = Upload::all();
+			// } else {
+			// 	if(config('laraadmin.uploads.private_uploads')) {
+			// 		// Upload::where('user_id', 0)->first();
+			// 		$uploads = Auth::user()->uploads;
+			// 	} else {
+			// 		$uploads = Upload::all();
+			// 	}
+			// }
 			$uploads2 = array();
 			foreach ($uploads as $upload) {
 				$u = (object) array();
@@ -253,7 +253,7 @@ class UploadsController extends Controller
 				$u->hash = $upload->hash;
 				$u->public = $upload->public;
 				$u->caption = $upload->caption;
-				$u->user = $upload->user->name;
+				// $u->user = $upload->user->name; 
 				
 				$uploads2[] = $u;
 			}

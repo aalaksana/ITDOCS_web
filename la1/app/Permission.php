@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Permission extends EntrustPermission
 {
-    use SoftDeletes;
+    // use SoftDeletes;
 	
 	protected $table = 'permissions';
 	
