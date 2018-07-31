@@ -76,6 +76,11 @@ a:after {
 	padding-top: 60px;
 }
 
+#haderwrap {
+	background-image: url("public/bgitdocs.jpg");
+	padding-top: 60px;
+}
+
 #headerwrap h1 {
 	margin-top: 30px;
 	color: white;

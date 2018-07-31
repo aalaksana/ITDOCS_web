@@ -113,7 +113,8 @@ class ProjectsController extends Controller
 			}
 			
 			$insert_id = Module::insert("Projects", $request);
-			DB::update("update projects set inisiator=".$user=Auth::user()->id." where id=".$insert_id);
+			DB::update("update projects set inisiator=".$user=Auth::user()->id.", instansi=".$user=Auth::user()->instansi." where id=".$insert_id);
+
 			$this::history('input',$insert_id);
 			
 			return redirect()->route(config('laraadmin.adminRoute') . '.projects.index');
