@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2018 at 02:54 PM
+-- Generation Time: Jul 31, 2018 at 09:59 AM
 -- Server version: 5.7.19
 -- PHP Version: 7.2.6
 
@@ -137,9 +137,7 @@ CREATE TABLE `dokumens` (
 --
 
 INSERT INTO `dokumens` (`id`, `deleted_at`, `created_at`, `updated_at`, `file`, `jenis`, `uploaded_by`, `approved_by`, `deskripsi`, `status`, `project_id`) VALUES
-(1, NULL, '2018-07-23 16:58:56', '2018-07-24 18:50:16', 7, 'Dokumen 0', 1, 1, 'coba', 'Disetujui', 1),
-(2, '2018-07-24 09:11:51', '2018-07-23 19:30:41', '2018-07-24 09:11:51', 5, 'Dokumen 1', 1, 1, '', 'Diajukan', 1),
-(3, '2018-07-30 00:53:25', '2018-07-29 20:25:17', '2018-07-30 00:53:25', 9, 'Dokumen 14', 1, 1, '', 'Diajukan', 1);
+(1, NULL, '2018-07-30 21:08:38', '2018-07-30 21:08:38', 1, 'Dokumen 0', 4, 1, 'dokumen pertama', 'Diajukan', 1);
 
 -- --------------------------------------------------------
 
@@ -386,8 +384,11 @@ INSERT INTO `module_fields` (`id`, `colname`, `label`, `module`, `field_type`, `
 (109, 'project_id', 'proyek', 19, 7, 0, '', 0, 0, 0, '@projects', 0, '2018-07-24 20:56:27', '2018-07-24 20:56:27'),
 (110, 'peran', 'Peran', 19, 7, 0, '', 0, 0, 0, '[\"Proses Bisnis\",\"Pengembang SI\",\"Tim QA\"]', 0, '2018-07-24 20:59:34', '2018-07-24 20:59:34'),
 (111, 'nama_pj', 'Penanggung jawab', 19, 7, 0, '', 0, 0, 0, '@users', 0, '2018-07-24 21:00:01', '2018-07-24 21:00:01'),
-(112, 'staf', 'Staf', 19, 15, 0, '', 0, 0, 0, '@users', 0, '2018-07-24 21:00:51', '2018-07-24 21:00:51'),
-(113, 'status', 'Status', 14, 13, 0, '', 0, 11, 0, '', 7, '2018-07-29 21:47:53', '2018-07-29 21:47:53');
+(113, 'status', 'Status', 14, 13, 0, '', 0, 11, 0, '', 7, '2018-07-29 21:47:53', '2018-07-29 21:47:53'),
+(114, 'staf', 'Staf/Analis', 19, 7, 0, '', 0, 0, 0, '@users', 0, '2018-07-30 20:01:38', '2018-07-30 20:01:38'),
+(115, 'staf1', 'Pengembang', 19, 7, 0, '', 0, 0, 0, '@users', 0, '2018-07-30 20:02:07', '2018-07-30 20:02:07'),
+(116, 'staf2', 'Tester', 19, 7, 0, '', 0, 0, 0, '@users', 0, '2018-07-30 20:02:29', '2018-07-30 20:26:45'),
+(117, 'staf3', 'Support', 19, 7, 0, '', 0, 0, 0, '@users', 0, '2018-07-30 20:02:47', '2018-07-30 20:02:47');
 
 -- --------------------------------------------------------
 
@@ -523,7 +524,7 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `deleted_at`, `created_at`, `updated_at`, `nama`, `dasar`, `deskripsi`, `start_date`, `inisiator`, `instansi`, `status`) VALUES
-(1, NULL, '2018-07-21 19:48:40', '2018-07-22 00:24:35', 'Aplikasi Pengembangan IT', 'KMK No. 351/KMK.1/2011', 'Monitoring Perkembangan proyek IT di lingkungan kementerian keuangan', '2018-07-16', 3, 2, 0),
+(1, NULL, '2018-07-21 19:48:40', '2018-07-22 00:24:35', 'Aplikasi Pengembangan IT', 'KMK No. 351/KMK.1/2011', 'Monitoring Perkembangan proyek IT di lingkungan kementerian keuangan', '2018-07-16', 3, 2, 1),
 (21, NULL, '2018-07-22 21:54:37', '2018-07-22 21:54:37', 'Aplikasi Dummy', 'Perdirjen Dummy', 'Aplikasi Dummy', '2018-07-26', 3, 2, 2);
 
 -- --------------------------------------------------------
@@ -650,14 +651,14 @@ INSERT INTO `role_module` (`id`, `role_id`, `module_id`, `acc_view`, `acc_create
 (100, 10, 5, 1, 0, 0, 0, '2018-07-24 19:57:10', '2018-07-24 19:57:10'),
 (101, 1, 19, 1, 1, 1, 1, '2018-07-24 21:01:40', '2018-07-24 21:01:40'),
 (102, 2, 19, 1, 1, 1, 1, '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
-(103, 3, 19, 1, 1, 1, 1, '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
+(103, 3, 19, 1, 0, 1, 1, '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (104, 4, 19, 1, 0, 0, 0, '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
-(105, 5, 19, 1, 1, 1, 1, '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
+(105, 5, 19, 1, 0, 1, 1, '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (106, 6, 19, 1, 0, 0, 0, '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (107, 7, 19, 1, 0, 0, 0, '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (108, 8, 19, 1, 0, 0, 0, '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (109, 9, 19, 1, 0, 0, 0, '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
-(110, 10, 19, 1, 1, 1, 1, '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
+(110, 10, 19, 1, 0, 1, 1, '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (111, 3, 2, 0, 0, 0, 0, '2018-07-29 03:15:38', '2018-07-29 03:15:38'),
 (112, 4, 2, 1, 1, 1, 1, '2018-07-29 03:15:38', '2018-07-29 03:15:38'),
 (113, 5, 2, 0, 0, 0, 0, '2018-07-29 03:15:38', '2018-07-29 03:15:38'),
@@ -1047,52 +1048,42 @@ INSERT INTO `role_module_fields` (`id`, `role_id`, `field_id`, `access`, `create
 (599, 1, 109, 'write', '2018-07-24 20:56:27', '2018-07-24 20:56:27'),
 (600, 1, 110, 'write', '2018-07-24 20:59:34', '2018-07-24 20:59:34'),
 (601, 1, 111, 'write', '2018-07-24 21:00:01', '2018-07-24 21:00:01'),
-(602, 1, 112, 'write', '2018-07-24 21:00:51', '2018-07-24 21:00:51'),
 (603, 2, 108, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (604, 2, 109, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (605, 2, 110, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (606, 2, 111, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
-(607, 2, 112, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (608, 3, 108, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (609, 3, 109, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
-(610, 3, 110, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
+(610, 3, 110, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (611, 3, 111, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
-(612, 3, 112, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (613, 4, 108, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (614, 4, 109, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (615, 4, 110, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (616, 4, 111, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
-(617, 4, 112, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (618, 5, 108, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (619, 5, 109, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
-(620, 5, 110, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
+(620, 5, 110, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (621, 5, 111, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
-(622, 5, 112, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (623, 6, 108, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (624, 6, 109, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (625, 6, 110, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (626, 6, 111, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
-(627, 6, 112, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (628, 7, 108, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (629, 7, 109, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (630, 7, 110, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (631, 7, 111, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
-(632, 7, 112, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (633, 8, 108, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (634, 8, 109, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (635, 8, 110, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (636, 8, 111, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
-(637, 8, 112, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (638, 9, 108, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (639, 9, 109, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (640, 9, 110, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (641, 9, 111, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
-(642, 9, 112, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (643, 10, 108, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (644, 10, 109, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
-(645, 10, 110, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
+(645, 10, 110, 'readonly', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (646, 10, 111, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
-(647, 10, 112, 'write', '2018-07-24 21:15:58', '2018-07-24 21:15:58'),
 (648, 3, 6, 'invisible', '2018-07-29 03:15:38', '2018-07-29 03:15:38'),
 (649, 3, 7, 'invisible', '2018-07-29 03:15:38', '2018-07-29 03:15:38'),
 (650, 3, 8, 'invisible', '2018-07-29 03:15:38', '2018-07-29 03:15:38'),
@@ -1158,7 +1149,47 @@ INSERT INTO `role_module_fields` (`id`, `role_id`, `field_id`, `access`, `create
 (710, 7, 113, 'invisible', '2018-07-30 05:44:47', '2018-07-30 05:44:47'),
 (711, 8, 113, 'invisible', '2018-07-30 05:44:47', '2018-07-30 05:44:47'),
 (712, 9, 113, 'invisible', '2018-07-30 05:44:47', '2018-07-30 05:44:47'),
-(713, 10, 113, 'invisible', '2018-07-30 05:44:47', '2018-07-30 05:44:47');
+(713, 10, 113, 'invisible', '2018-07-30 05:44:47', '2018-07-30 05:44:47'),
+(714, 1, 114, 'write', '2018-07-30 20:01:38', '2018-07-30 20:01:38'),
+(715, 1, 115, 'write', '2018-07-30 20:02:08', '2018-07-30 20:02:08'),
+(716, 1, 116, 'write', '2018-07-30 20:02:30', '2018-07-30 20:02:30'),
+(717, 1, 117, 'write', '2018-07-30 20:02:47', '2018-07-30 20:02:47'),
+(718, 2, 114, 'readonly', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(719, 2, 115, 'readonly', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(720, 2, 116, 'readonly', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(721, 2, 117, 'readonly', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(722, 3, 114, 'write', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(723, 3, 115, 'readonly', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(724, 3, 116, 'readonly', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(725, 3, 117, 'readonly', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(726, 4, 114, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(727, 4, 115, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(728, 4, 116, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(729, 4, 117, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(730, 5, 114, 'write', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(731, 5, 115, 'write', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(732, 5, 116, 'write', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(733, 5, 117, 'write', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(734, 6, 114, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(735, 6, 115, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(736, 6, 116, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(737, 6, 117, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(738, 7, 114, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(739, 7, 115, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(740, 7, 116, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(741, 7, 117, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(742, 8, 114, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(743, 8, 115, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(744, 8, 116, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(745, 8, 117, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(746, 9, 114, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(747, 9, 115, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(748, 9, 116, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(749, 9, 117, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(750, 10, 114, 'write', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(751, 10, 115, 'readonly', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(752, 10, 116, 'readonly', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(753, 10, 117, 'readonly', '2018-07-30 20:04:06', '2018-07-30 20:04:06');
 
 -- --------------------------------------------------------
 
@@ -1188,7 +1219,8 @@ INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`)
 (7, 7, 7, NULL, NULL),
 (8, 8, 8, NULL, NULL),
 (9, 9, 9, NULL, NULL),
-(10, 10, 10, NULL, NULL);
+(10, 10, 10, NULL, NULL),
+(13, 10, 13, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1204,18 +1236,21 @@ CREATE TABLE `teams` (
   `nama` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `project_id` int(10) UNSIGNED NOT NULL DEFAULT '1',
   `peran` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `nama_pj` int(10) UNSIGNED NOT NULL DEFAULT '1',
-  `staf` varchar(256) COLLATE utf8_unicode_ci NOT NULL DEFAULT '[]'
+  `nama_pj` int(10) UNSIGNED DEFAULT NULL,
+  `staf` int(10) UNSIGNED DEFAULT NULL,
+  `staf1` int(10) UNSIGNED DEFAULT NULL,
+  `staf2` int(10) UNSIGNED DEFAULT '1',
+  `staf3` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `teams`
 --
 
-INSERT INTO `teams` (`id`, `deleted_at`, `created_at`, `updated_at`, `nama`, `project_id`, `peran`, `nama_pj`, `staf`) VALUES
-(1, NULL, '2018-07-24 21:03:06', '2018-07-24 21:10:48', 'Tim A', 1, 'Proses Bisnis', 3, '[4]'),
-(2, NULL, '2018-07-24 21:11:11', '2018-07-24 21:11:25', 'Tim A', 1, 'Pengembang SI', 5, '[6,7,8,9]'),
-(3, NULL, '2018-07-24 21:12:32', '2018-07-26 20:28:22', 'Tim A', 1, 'Tim QA', 10, '[]');
+INSERT INTO `teams` (`id`, `deleted_at`, `created_at`, `updated_at`, `nama`, `project_id`, `peran`, `nama_pj`, `staf`, `staf1`, `staf2`, `staf3`) VALUES
+(1, NULL, '2018-07-24 21:03:06', '2018-07-30 20:16:53', 'Tim A', 1, 'Proses Bisnis', 3, 4, NULL, NULL, NULL),
+(2, NULL, '2018-07-24 21:11:11', '2018-07-30 20:18:25', 'Tim A', 1, 'Pengembang SI', 5, 6, 7, 8, 9),
+(3, NULL, '2018-07-24 21:12:32', '2018-07-30 20:19:50', 'Tim A', 1, 'Tim QA', 10, 10, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1231,7 +1266,7 @@ CREATE TABLE `uploads` (
   `caption` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL DEFAULT '1',
   `hash` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `public` tinyint(1) NOT NULL DEFAULT '0',
+  `public` tinyint(1) NOT NULL DEFAULT '1',
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1242,15 +1277,7 @@ CREATE TABLE `uploads` (
 --
 
 INSERT INTO `uploads` (`id`, `name`, `path`, `extension`, `caption`, `user_id`, `hash`, `public`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Surat Sehat.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-07-16-123424-Surat Sehat.pdf', 'pdf', '', 1, 'h0xzbzz4vvucxdsxpdcw', 1, '2018-07-17 04:55:36', '2018-07-16 05:34:24', '2018-07-17 04:55:36'),
-(2, 'Laravel Cheatsheet.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-07-17-103234-Laravel Cheatsheet.pdf', 'pdf', '', 1, 'z8qqt0z2a248rbn2bsge', 1, NULL, '2018-07-17 03:32:34', '2018-07-17 04:48:29'),
-(3, 'MySQL.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-07-17-115617-MySQL.pdf', 'pdf', '', 1, 'xje7ndwwjuyytnktbtdp', 1, NULL, '2018-07-17 04:56:17', '2018-07-17 04:56:17'),
-(4, 'HTML-cheat-sheet.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-07-17-120413-HTML-cheat-sheet.pdf', 'pdf', '', 2, 'xhzxnc63khgw8k7phrwl', 0, NULL, '2018-07-17 05:04:13', '2018-07-17 05:04:13'),
-(5, 'Cheat Sheet - PHP and Form.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-07-17-120508-Cheat Sheet - PHP and Form.pdf', 'pdf', '', 1, 'wpdp44zvkpdjznkymnyy', 1, NULL, '2018-07-17 05:05:08', '2018-07-17 06:27:05'),
-(6, 'Cheat Sheet - PHP String.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-07-17-132854-Cheat Sheet - PHP String.pdf', 'pdf', '', 1, '5fpubqifvraj2ls6ixbj', 1, NULL, '2018-07-17 06:28:54', '2018-07-23 06:57:02'),
-(7, 'Laravel Cheatsheet.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-07-23-135628-Laravel Cheatsheet.pdf', 'pdf', '', 1, 'xt0wfoqfrocwupravx0b', 1, NULL, '2018-07-23 06:56:28', '2018-07-23 06:56:38'),
-(8, 'Laravel Cheatsheet.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-07-29-085855-Laravel Cheatsheet.pdf', 'pdf', '', 1, 'nfikizo0ylvsnzq8t2bs', 0, NULL, '2018-07-29 01:58:55', '2018-07-29 01:58:55'),
-(9, 'Surat Sehat.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-07-29-101737-Surat Sehat.pdf', 'pdf', '', 4, 'i3e5erx0pxuxo8ijcozx', 0, NULL, '2018-07-29 03:17:37', '2018-07-29 03:17:37');
+(1, 'Laravel Cheatsheet.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-07-31-040827-Laravel Cheatsheet.pdf', 'pdf', '', 4, 'hrb2v070um7wthkdkhfl', 1, NULL, '2018-07-30 21:08:27', '2018-07-30 21:08:27');
 
 -- --------------------------------------------------------
 
@@ -1276,16 +1303,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `nip`, `email`, `password`, `remember_token`, `deleted_at`, `created_at`, `updated_at`, `instansi`) VALUES
-(1, 'admin admin', '199008262012101002', 'mail.laksana@gmail.com', '$2y$10$O.7C006oeGCLv703St/3Quy5QT2KYEhsfvJhz5o1tD54MQr3f/npO', 'kPD1eSHeLt6BBaDOKvQgTTs872RmheQ3gNWdmIKdnjh3G36Z9HERwlMk1Zem', NULL, '2018-07-15 07:18:14', '2018-07-30 02:39:43', 1),
-(2, 'User Admin', '199101212011101001', 'test@gmail.com', '$2y$10$fnLEzxqk35JpbIPXidHwleSqE/If71CFPr11ftTsTjiZaLaTsUbuG', 'fHq3eCSJvXDWpOLXSdMswypYrjUVaYwvPbocdTIkbVs2FmWqOTe6sWz7Ndnw', NULL, '2018-07-16 05:42:57', '2018-07-30 05:54:04', 1),
-(3, 'User Inisiator', '198737373648272632', 'inisiator@kemenkeu.go.id', '$2y$10$209bBMKYn3Jv9ggTHx7JUezqt6UGSosxNd3FzdQeQIv3kj0KlC9BO', 'WnMFXZFEth6iTIWMjl9yJM0bE6i38uPcsN9adDoVJjp1DleZSu2T3rI6FeM7', NULL, '2018-07-19 06:45:09', '2018-07-30 05:37:39', 2),
-(4, 'User Init Ops', '198001029381029192', 'initops@kemenkeu.go.id', '$2y$10$Fub0Ai9QMiC565jJGm5zDumENSFeLKn6/Un55ptsh49Auy.k17ofO', 'XLCwedAojHPYrPxbmD481sJivyuTdksSHNLGlP5M0U4KMdfWctUdr5MsKLEX', NULL, '2018-07-19 06:46:54', '2018-07-29 21:46:28', 2),
-(5, 'User Project Man', '198201020102102011', 'projectman@kemenkeu.go.id', '$2y$10$Tv3MM5GXrfyGzWxNHwHrBeqLUjr08v70hs6qluhovtUPT8x/Mj1NK', NULL, NULL, '2018-07-19 06:47:39', '2018-07-19 06:47:39', 1),
+(1, 'admin admin', '199008262012101002', 'mail.laksana@gmail.com', '$2y$10$O.7C006oeGCLv703St/3Quy5QT2KYEhsfvJhz5o1tD54MQr3f/npO', 'o3L0eROpiNOVekQrlGpmYXIbSQSL0ourvEr4z8qsB2SStOqAh3idKZDWHsFM', NULL, '2018-07-15 07:18:14', '2018-07-30 23:12:39', 1),
+(2, 'User Admin', '199101212011101001', 'test@gmail.com', '$2y$10$fnLEzxqk35JpbIPXidHwleSqE/If71CFPr11ftTsTjiZaLaTsUbuG', 'qlyI7eFWIm5AG9aNXvgJtUw6X2wIPaplyGp5fVWXeZgLzoETsxSHYmRCZRum', NULL, '2018-07-16 05:42:57', '2018-07-30 19:02:45', 1),
+(3, 'User Inisiator', '198737373648272632', 'inisiator@kemenkeu.go.id', '$2y$10$209bBMKYn3Jv9ggTHx7JUezqt6UGSosxNd3FzdQeQIv3kj0KlC9BO', 'A8YkDzbrSBWwyd2pjFOhnCv22ZJ7B3xRWYouqSPNH8xeEgHWh6uwuxwOJBQk', NULL, '2018-07-19 06:45:09', '2018-07-30 20:17:17', 2),
+(4, 'User Init Ops', '198001029381029192', 'initops@kemenkeu.go.id', '$2y$10$Fub0Ai9QMiC565jJGm5zDumENSFeLKn6/Un55ptsh49Auy.k17ofO', 'JFXVVQUhpQk7nts446YAjkZsHSeqObdYqCD0NIjSNOPhYykiaP9OTvsaCGnD', NULL, '2018-07-19 06:46:54', '2018-07-30 21:19:30', 2),
+(5, 'User Project Man', '198201020102102011', 'projectman@kemenkeu.go.id', '$2y$10$Tv3MM5GXrfyGzWxNHwHrBeqLUjr08v70hs6qluhovtUPT8x/Mj1NK', 'zto3g0wvPqjAARnQsgNKSZFRPakOPyglcgSOAHdiCJJFgMNmeljdDK8EHnLc', NULL, '2018-07-19 06:47:39', '2018-07-30 20:19:13', 1),
 (6, 'User Analyst', '198201929281928192', 'analyst@kemenkeu.go.id', '$2y$10$pWHDGit9Ji1HmLxnKDwCgOdKrAs8CMlUgA2SnC6Scqs4QAfhuWfxu', NULL, NULL, '2018-07-19 06:48:22', '2018-07-19 06:48:22', 1),
 (7, 'User Dev', '199019201928191829', 'dev@kemenkeu.go.id', '$2y$10$yFtWkYcVIm94TBXuVbY9mej.wTztc/R083MlXhtS8B9EY3/7wxlru', NULL, NULL, '2018-07-19 06:49:18', '2018-07-19 06:49:18', 1),
 (8, 'User Tester', '198201020102102001', 'tester@kemenkeu.go.id', '$2y$10$.yWYxbnLLLz/.UQUguOU8.xnKxUG8Z2bP3pRSnvWXIzjITkl8lxxe', NULL, NULL, '2018-07-19 06:50:49', '2018-07-19 06:50:49', 1),
 (9, 'User Support', '198201929281928002', 'support@kemenkeu.go.id', '$2y$10$kj4XXEyVAA.0DpHbHW9GAOIfvSRHkHUJLTg/t31ya0YvmMdgtx5sy', NULL, NULL, '2018-07-19 06:51:39', '2018-07-19 06:51:39', 1),
-(10, 'User QA', '198737373648200031', 'qa@kemenkeu.go.id', '$2y$10$7vZSYx.Y30NQ6.qfJEIHXuITXWk4MwvnHAakyjiClsMwciuD8032W', 'OJEXxoUEOdac7DeEbHvXK7pFfjEegALisDNtavaSYzwey7uNS8KVmnNRrl8c', NULL, '2018-07-19 06:52:28', '2018-07-24 21:26:39', 3);
+(10, 'User QA', '198737373648200031', 'qa@kemenkeu.go.id', '$2y$10$7vZSYx.Y30NQ6.qfJEIHXuITXWk4MwvnHAakyjiClsMwciuD8032W', 'mesFGjgdu81PdLoMRjUofZ5bgExusnq9Oov2ILS1j4wtNN66Zjoxp3klyIbq', NULL, '2018-07-19 06:52:28', '2018-07-30 21:07:13', 3),
+(13, 'user coba', '1990090909900998', 'mail@mail.com', '$2y$10$Hxn4jgMh.v7fAJlOQlubY.c5XUjH0xgwBTNoyhHPNLUvYTcCuyKOG', NULL, NULL, '2018-07-30 07:12:31', '2018-07-30 07:12:31', 1);
 
 --
 -- Indexes for dumped tables
@@ -1425,7 +1453,11 @@ ALTER TABLE `role_user`
 ALTER TABLE `teams`
   ADD PRIMARY KEY (`id`),
   ADD KEY `teams_project_id_foreign` (`project_id`),
-  ADD KEY `teams_nama_pj_foreign` (`nama_pj`);
+  ADD KEY `teams_nama_pj_foreign` (`nama_pj`),
+  ADD KEY `teams_staf_foreign` (`staf`),
+  ADD KEY `teams_staf1_foreign` (`staf1`),
+  ADD KEY `teams_staf2_foreign` (`staf2`),
+  ADD KEY `teams_staf3_foreign` (`staf3`);
 
 --
 -- Indexes for table `uploads`
@@ -1467,7 +1499,7 @@ ALTER TABLE `doctypes`
 -- AUTO_INCREMENT for table `dokumens`
 --
 ALTER TABLE `dokumens`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `history`
@@ -1497,7 +1529,7 @@ ALTER TABLE `modules`
 -- AUTO_INCREMENT for table `module_fields`
 --
 ALTER TABLE `module_fields`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT for table `module_field_types`
@@ -1515,7 +1547,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -1533,13 +1565,13 @@ ALTER TABLE `role_module`
 -- AUTO_INCREMENT for table `role_module_fields`
 --
 ALTER TABLE `role_module_fields`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=714;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=754;
 
 --
 -- AUTO_INCREMENT for table `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `teams`
@@ -1551,13 +1583,13 @@ ALTER TABLE `teams`
 -- AUTO_INCREMENT for table `uploads`
 --
 ALTER TABLE `uploads`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
@@ -1629,7 +1661,11 @@ ALTER TABLE `role_user`
 --
 ALTER TABLE `teams`
   ADD CONSTRAINT `teams_nama_pj_foreign` FOREIGN KEY (`nama_pj`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `teams_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`);
+  ADD CONSTRAINT `teams_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`),
+  ADD CONSTRAINT `teams_staf1_foreign` FOREIGN KEY (`staf1`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `teams_staf2_foreign` FOREIGN KEY (`staf2`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `teams_staf3_foreign` FOREIGN KEY (`staf3`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `teams_staf_foreign` FOREIGN KEY (`staf`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `uploads`
