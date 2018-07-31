@@ -55,28 +55,19 @@
 			</div>
 			{!! Form::open(['action' => 'LA\ProjectsController@store', 'id' => 'project-add-form']) !!}
 			<div class="modal-body">
-				<div class="box-body">
-                    @la_form($module)
-					
-					{{--
+				<div class="box-body">                    
 					@la_input($module, 'nama')
 					@la_input($module, 'dasar')
 					@la_input($module, 'inisiator')
 					@la_input($module, 'instansi')
 					@la_input($module, 'deskripsi')
 					@la_input($module, 'start_date')
-					@la_input($module, 'analisa')
-					@la_input($module, 'perancangan')
-					@la_input($module, 'pengembangan')
-					@la_input($module, 'pengujian')
-					@la_input($module, 'implementasi')
-					@la_input($module, 'pc_implemen')
-					--}}
+					@la_input($module, 'status')
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				{!! Form::submit( 'Submit', ['class'=>'btn btn-success']) !!}
+				<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+				{!! Form::submit( 'Tambah', ['class'=>'btn btn-success']) !!}
 			</div>
 			{!! Form::close() !!}
 		</div>
