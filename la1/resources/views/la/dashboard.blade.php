@@ -43,7 +43,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="box box-widget widget-user" style="height: 280px">
+      <div class="box box-widget widget-user">
         <div class="widget-user-header" style="padding: 12px; height: 100px; background-color: #109023">
           @if(count($probis)>0)
           <h3 class="widget-user-username" style="font-size: 22px; color: whitesmoke">{{$probis[0]->name}}</h3>
@@ -75,7 +75,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="box box-widget widget-user" style="height: 280px">
+      <div class="box box-widget widget-user">
         <div class="widget-user-header" style="padding: 12px; height: 100px; background-color: #337ab7">
           @if(count($si)>0)
           <h3 class="widget-user-username" style="font-size: 22px; color: whitesmoke">{{$si[0]->name}}</h3>
@@ -107,7 +107,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="box box-widget widget-user" style="height: 280px">
+      <div class="box box-widget widget-user">
         <div class="widget-user-header" style="padding: 12px; height: 100px; background-color: #ce7f03">
           @if(count($qa)>0)
           <h3 class="widget-user-username" style="font-size: 22px; color: whitesmoke">{{$qa[0]->name}}</h3>
@@ -252,7 +252,7 @@
 </script>
 <!-- Progress Bar -->
 <script src="{{ asset('la-assets/plugins/progress-bar-master/progress-bar.js') }}"></script>
-{{--<script src="{{ asset('la-assets/plugins/progress-bar-master/app.js') }}"></script>--}}
+<script src="{{ asset('la-assets/plugins/progress-bar-master/app.js') }}"></script>
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="{{ asset('la-assets/plugins/morris/morris.min.js') }}"></script>
@@ -274,27 +274,6 @@
 <script src="{{ asset('la-assets/plugins/fastclick/fastclick.js') }}"></script>
 <!-- dashboard -->
 <script src="{{ asset('la-assets/js/pages/dashboard.js') }}"></script>
-@endpush
-
-@push('scripts')
-  <script>
-
-      //we can set animation delay as following in ms (default 1000)
-      ProgressBar.singleStepAnimation = 1500;
-      ProgressBar.init(
-          [
-              'Analisa Kebutuhan',
-              'Perancangan',
-              'Pengembangan',
-              'Pengujian',
-              'Implementasi',
-              'Pasca Implementasi'
-          ],
-          '{{ $status }}',
-          'progress-bar-wrapper' // created this optional parameter for container name (otherwise default container created)
-      );
-
-  </script>
 @endpush
 
 @push('scripts')

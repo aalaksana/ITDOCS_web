@@ -70,27 +70,27 @@
 
 
 <section id="home" name="home"></section>
-<div id="haderwrap">
+<div id="headerwrap">
     <div class="container">
         <div class="row centered">
             <div class="col-lg-12">
                 <h1>{{ LAConfigs::getByKey('sitename_part1') }} <b><a>{{ LAConfigs::getByKey('sitename_part2') }}</a></b></h1>
                 <h3>{{ LAConfigs::getByKey('site_description') }}</h3>
-                <h3><a href="{{ url('/login') }}" class="btn btn-lg btn-success">Mulai Sekarang</a></h3><br>
+                <h3><a href="{{ url('/login') }}" class="btn btn-lg btn-success">Get Started!</a></h3><br>
             </div>
             <div class="col-lg-2">
-                <h5>Rapikan dokumen Anda</h5>
-                <p>sebelum tertumpuk dengan yang lain</p>
+                <h5>Amazing Functionalities</h5>
+                <p>for Modern Admin Panels</p>
                 <img class="hidden-xs hidden-sm hidden-md" src="{{ asset('/la-assets/img/arrow1.png') }}">
             </div>
             <div class="col-lg-8">
-                <img class="img-responsive" src="{{ asset('/la-assets/img/desktop.png') }}" alt="">
+                <img class="img-responsive" src="{{ asset('/la-assets/img/app-bg.png') }}" alt="">
             </div>
             <div class="col-lg-2">
                 <br>
                 <img class="hidden-xs hidden-sm hidden-md" src="{{ asset('/la-assets/img/arrow2.png') }}">
-                <h5>Pantau proyek Anda</h5>
-                <p>untuk prestasi bersama</p>
+                <h5>Completely Packaged...</h5>
+                <p>for Future expantion of Modules</p>
             </div>
         </div>
     </div> <!--/ .container -->
@@ -102,23 +102,23 @@
 <div id="intro">
     <div class="container">
         <div class="row centered">
-            <h1>Aplikasi yang dirancang untuk efektifitas</h1>
+            <h1>An Architecture designed To Excel</h1>
             <br>
             <br>
             <div class="col-lg-4">
-                <i class="fa fa-thumbs-o-up" style="font-size:100px;height:110px;"></i>
-                <h3>Mudah digunakan</h3>
-                <p>Dibangun dengan perspektif project manager</p>
+                <i class="fa fa-cubes" style="font-size:100px;height:110px;"></i>
+                <h3>Modular</h3>
+                <p>Making Data Management fast and enjoyable.</p>
             </div>
             <div class="col-lg-4">
-                <i class="fa fa-cogs" style="font-size:100px;height:110px;"></i>
-                <h3>Integritas</h3>
-                <p>Setiap capaian diiringi dengan bukti</p>
+                <i class="fa fa-paper-plane" style="font-size:100px;height:110px;"></i>
+                <h3>Easy to Install</h3>
+                <p>With single installation command.</p>
             </div>
             <div class="col-lg-4">
-                <i class="fa fa-users" style="font-size:100px;height:110px;"></i>
-                <h3>Division of Labor</h3>
-                <p>Pembagian tugas yang jelas untuk masing-masing pihak</p>
+                <i class="fa fa-cubes" style="font-size:100px;height:110px;"></i>
+                <h3>Customizable</h3>
+                <p>Easy to Manipulation the flows.</p>
             </div>
         </div>
         <br>
@@ -131,22 +131,25 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-5 centered">
-                <img class="centered" src="{{ asset('/la-assets/img/mobs.png') }}" alt="">
+                <img class="centered" src="{{ asset('/la-assets/img/mobile.png') }}" alt="">
             </div>
 
             <div class="col-lg-7">
-				<h3 class="feature-title">Apa itu ITDOCS ?</h3><br>
+				<h3 class="feature-title">What is LaraAdmin ?</h3><br>
 				<ol class="features">
-					<li><strong>SDLC based</strong> (Software Developement Life Cycle) &#8211; Mengacu kepada standar SDLC sesuai KMK 351/KMK.01/2011.</li>
-					<li>Alat Bantu <strong>Manajemen Proyek</strong> &#8211; Setiap stakeholder bisa memantau perkembangan proyek SI.</li>
-					<li>Administrasi <strong>dokumentasi</strong> yang handal &#8211; Can be evolved into a CRM system like <a target="_blank" href="https://www.sugarcrm.com">SugarCRM</a></li>
+					<li><strong>CMS</strong> (Content Management System) &#8211; Manages Modules &amp; their Data</li>
+					<li>Backend <strong>Admin Panel</strong> &#8211; Data can be used in front end applications with ease.</li>
+					<li>A probable <strong>CRM</strong> System &#8211; Can be evolved into a CRM system like <a target="_blank" href="https://www.sugarcrm.com">SugarCRM</a></li>
 				</ol><br>
 
-				<h3 class="feature-title">Siapa yang diuntungkan oleh ITDOCS ?</h3><br>
+				<h3 class="feature-title">Why LaraAdmin ?</h3><br>
                 <ol class="features">
-					<li><strong>Pemilik proses bisnis </strong> kini dapat memantau proyek mereka yang <strong>terintegrasi</strong> dengan dokumen sah yang terkait. lihat lebih lanjut <a target="_blank" href="http://laraadmin.com/features">di sini.</a></li>
-					<li>Fungsi kontrol dari <strong>pengembang SI</strong> semakin diperkuat dengan membandingkan capaian proyek SI dengan target yang telah ditentukan.</li>
-					<li><strong>Unit pengendali internal</strong> mampu memeriksa dokumentasi sistem lewat internet, dari mana dan kapan saja.</li>
+					<li><strong>Philosophy:</strong> Inspired by SugarCRM &amp; based on Advanced <strong>Data Types</strong> like Image, HTML, File, Dropdown, TagInput which makes developers job easy. See more in <a target="_blank" href="http://laraadmin.com/features">features</a></li>
+					<li>Superior <strong>CRUD generation</strong> for Modules which generates Migration, Controller, Model and Views with single artisan command and integrates with Routes as as well.</li>
+					<li><strong>Form Maker</strong> helper is provided for generating entire form with single function call with module name as single parameter. It also gives you freedom to customise form for every field by providing method to generate single field with parameters for customisations.</li>
+					<li><b>Upload Manager </b>manages project files &amp; images which are integrated with your Module fields.</li>
+					<li><strong>Menu Manager</strong> creates menu with Modules &amp; Custom Links likes WordPress</li>
+					<li><strong>Online Code Editor</strong> allows developers to customise the generated Module Views &amp; Files.</li>
 				</ol>
             </div>
         </div>
@@ -157,35 +160,37 @@
 <div id="footerwrap">
     <div class="container">
         <div class="col-lg-5">
-            <h3>Hubungi Kami</h3><br>
+            <h3>Contact Us</h3><br>
             <p>
-				Kelompok 4 Diklat Prakom<br/>
-				Kementerian Keuangan RI<br/>
-                <a href="https://www.kemenkeu.go.id/" target="_blank">kemenkeu.go.id</a> <br/>
+				Dwij IT Solutions,<br/>
+				Web Development Company in Pune,<br/>
+                B4, Patang Plaza Phase 5,<br/>
+                Opp. PICT College,<br/>
+                Katraj, Pune, India - 411046
             </p>
-			<div class="contact-link"><i class="fa fa-envelope-o"></i> <a href="mailto:rzirwansyah@gmail.com">andre@hehanusa.com</a></div>
+			<div class="contact-link"><i class="fa fa-envelope-o"></i> <a href="mailto:hello@laraadmin.com">hello@laraadmin.com</a></div>
 			<div class="contact-link"><i class="fa fa-cube"></i> <a href="http://laraadmin.com">laraadmin.com</a></div>
 			<div class="contact-link"><i class="fa fa-building"></i> <a href="http://dwijitsolutions.com">dwijitsolutions.com</a></div>
         </div>
 
         <div class="col-lg-7">
-            <h3>Tinggalkan kontak Anda</h3>
+            <h3>Drop Us A Line</h3>
             <br>
             <form role="form" action="#" method="post" enctype="plain">
                 <div class="form-group">
-                    <label for="name1">Nama Anda</label>
+                    <label for="name1">Your Name</label>
                     <input type="name" name="Name" class="form-control" id="name1" placeholder="Your Name">
                 </div>
                 <div class="form-group">
-                    <label for="email1">Alamat email</label>
+                    <label for="email1">Email address</label>
                     <input type="email" name="Mail" class="form-control" id="email1" placeholder="Enter email">
                 </div>
                 <div class="form-group">
-                    <label>Komentar Anda</label>
+                    <label>Your Text</label>
                     <textarea class="form-control" name="Message" rows="3"></textarea>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-large btn-success">KIRIM</button>
+                <button type="submit" class="btn btn-large btn-success">SUBMIT</button>
             </form>
         </div>
     </div>
@@ -193,7 +198,7 @@
 <div id="c">
     <div class="container">
         <p>
-            <strong>Copyright &copy; 2018. Powered by <a href="https://www.youtube.com/watch?v=qLSdtbDuTNA"><b>Kelompok 4 Diklat Prakom</b></a>
+            <strong>Copyright &copy; 2016. Powered by <a href="https://dwijitsolutions.com"><b>Dwij IT Solutions</b></a>
         </p>
     </div>
 </div>
