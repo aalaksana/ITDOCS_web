@@ -35,7 +35,7 @@
       <div class="small-box" style="background-color: #1e655e">
         <div class="inner" style="height: 15%">
               <h3 style="font-size: 18px; color: whitesmoke">Progress Pengembangan</h3>
-              <p style="font-size: 11px; color: whitesmoke">per tanggal 17 Juli 2018</p>
+              <p style="font-size: 11px; color: whitesmoke">Update {{date("Y-m-d")}}</p>
           <div style="min-width: 320px; max-width: 1024px; margin: 8px auto;"> 
             <div class="progress-bar-wrapper"></div> 
           </div>
@@ -161,7 +161,7 @@
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
             @foreach($Drancang as $drancang)
-            <li><a href={{str_replace(' ', '%20',$drancang->file)}} target="_blank">{{$drancang->jenis}}</a></li>
+            <li><a href={{str_replace("index.php","",$_SERVER["PHP_SELF"])}}.{{str_replace(' ', '%20',$drancang->file)}} target="_blank">{{$drancang->jenis}}</a></li>
             @endforeach
           </ul>
         </div>
@@ -175,7 +175,7 @@
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
             @foreach($Dkembang as $dkembang)
-            <li><a href={{str_replace(' ', '%20',$dkembang->file)}} target="_blank">{{$dkembang->jenis}}</a></li>
+            <li><a href={{str_replace("index.php","",$_SERVER["PHP_SELF"])}}.{{str_replace(' ', '%20',$dkembang->file)}} target="_blank">{{$dkembang->jenis}}</a></li>
             @endforeach
           </ul>
         </div>
@@ -189,7 +189,7 @@
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
             @foreach($Duji as $duji)
-            <li><a href={{str_replace(' ', '%20',$duji->file)}} target="_blank">{{$duji->jenis}}</a></li>
+            <li><a href={{str_replace("index.php","",$_SERVER["PHP_SELF"])}}.{{str_replace(' ', '%20',$duji->file)}} target="_blank">{{$duji->jenis}}</a></li>
             @endforeach
           </ul>
         </div>
@@ -203,7 +203,7 @@
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
             @foreach($Dimplemen as $dimplemen)
-            <li><a href={{str_replace(' ', '%20',$dimplemen->file)}} target="_blank">{{$dimplemen->jenis}}</a></li>
+            <li><a href={{str_replace("index.php","",$_SERVER["PHP_SELF"])}}.{{str_replace(' ', '%20',$dimplemen->file)}} target="_blank">{{$dimplemen->jenis}}</a></li>
             @endforeach
           </ul>
         </div>
@@ -217,7 +217,7 @@
         <div class="box-body bg-white" style="height: 120px">
           <ul style="padding-left: 15px">
             @foreach($Dpcim as $dpcim)
-            <li><a href={{str_replace(' ', '%20',$dpcim->file)}} target="_blank">{{$dpcim->jenis}}</a></li>
+            <li><a href={{str_replace("index.php","",$_SERVER["PHP_SELF"])}}.{{str_replace(' ', '%20',$dpcim->file)}} target="_blank">{{$dpcim->jenis}}</a></li>
             @endforeach
           </ul>
         </div>
