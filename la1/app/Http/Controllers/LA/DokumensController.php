@@ -23,7 +23,7 @@ class DokumensController extends Controller
 {
 	public $show_action = true;
 	public $view_col = 'jenis';
-	public $listing_cols = ['id', 'project_id', 'file', 'jenis', 'deskripsi', 'uploaded_by', 'approved_by', 'status'];
+	public $listing_cols = ['id', 'project_id', 'jenis', 'deskripsi', 'uploaded_by', 'status'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
@@ -231,11 +231,11 @@ class DokumensController extends Controller
 			
 			if($this->show_action) {
 				$output = '';
-			/*452*/	if(Module::hasAccess("Dokumens", "edit") && $data->data[$i][5]==Auth::user()->name &&$data->data[$i][7]=='Diajukan') {
+			/*452*/	if(Module::hasAccess("Dokumens", "edit") && $data->data[$i][4]==Auth::user()->name &&$data->data[$i][5]=='Diajukan') {
 					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/dokumens/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
 				}
 				
-			/*452*/	if(Module::hasAccess("Dokumens", "delete") && $data->data[$i][5]==Auth::user()->name &&$data->data[$i][7]=='Diajukan') {
+			/*452*/	if(Module::hasAccess("Dokumens", "delete") && $data->data[$i][4]==Auth::user()->name &&$data->data[$i][5]=='Diajukan') {
 					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.dokumens.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
 					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
 					$output .= Form::close();
