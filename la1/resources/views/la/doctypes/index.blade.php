@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
-@section("contentheader_title", "Doctypes")
-@section("contentheader_description", "Doctypes listing")
-@section("section", "Doctypes")
-@section("sub_section", "Listing")
-@section("htmlheader_title", "Doctypes Listing")
+@section("contentheader_title", "Jenis Dokumen")
+@section("contentheader_description", "Daftar Jenis Dokumen")
+@section("section", "Jenis Dokumen")
+@section("sub_section", "Daftar")
+@section("htmlheader_title", "Jenis Dokumen ")
 
 @section("headerElems")
 @la_access("Doctypes", "create")
-	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Doctype</button>
+	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Tambah</button>
 @endla_access
 @endsection
 

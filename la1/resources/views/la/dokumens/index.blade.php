@@ -1,8 +1,8 @@
 @extends("la.layouts.app")
 @section("contentheader_title", "Dokumen")
 @section("contentheader_description", "Daftar Dokumen")
-@section("section", "Dokumens")
-@section("sub_section", "Listing")
+@section("section", "Dokumen")
+@section("sub_section", "Daftar")
 @section("htmlheader_title", "Daftar Dokumen")
 
 @section("headerElems")

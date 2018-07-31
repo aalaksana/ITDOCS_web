@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
-@section("contentheader_title", "Team")
-@section("contentheader_description", "Daftar Team")
-@section("section", "Team")
+@section("contentheader_title", "Tim")
+@section("contentheader_description", "Daftar Tim")
+@section("section", "Timm")
 @section("sub_section", "Listing")
-@section("htmlheader_title", "Daftar Team")
+@section("htmlheader_title", "Daftar Tim")
 
 @section("headerElems")
 @la_access("Teams", "create")
-	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Tambah Team</button>
+	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Tambah Tim</button>
 @endla_access
 @endsection
 
@@ -51,7 +51,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Tambah Team</h4>
+				<h4 class="modal-title" id="myModalLabel">Tambah Tim</h4>
 			</div>
 			{!! Form::open(['action' => 'LA\TeamsController@store', 'id' => 'team-add-form']) !!}
 			<div class="modal-body">

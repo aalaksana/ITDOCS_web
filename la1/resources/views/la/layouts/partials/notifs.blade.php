@@ -1,14 +1,14 @@
-		<!-- Navbar Right Menu -->
+<!-- Navbar Right Menu -->
 		<div class="navbar-custom-menu">
 			<ul class="nav navbar-nav">
 				<!-- Messages: style can be found in dropdown.less-->
 				@if(LAConfigs::getByKey('show_messages'))
-				<li class="dropdown messages-menu">
+				<!-- <li class="dropdown messages-menu"> -->
 					<!-- Menu toggle button -->
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="fa fa-envelope-o"></i>
 						<span class="label label-success">4</span>
-					</a>
+					</a> -->
 					<ul class="dropdown-menu">
 						<li class="header">You have 4 messages</li>
 						<li>
@@ -37,12 +37,12 @@
 				@endif
 				@if(LAConfigs::getByKey('show_notifications'))
 				<!-- Notifications Menu -->
-				<li class="dropdown notifications-menu">
+				<!-- <li class="dropdown notifications-menu"> -->
 					<!-- Menu toggle button -->
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="fa fa-bell-o"></i>
 						<span class="label label-warning">10</span>
-					</a>
+					</a> -->
 					<ul class="dropdown-menu">
 						<li class="header">You have 10 notifications</li>
 						<li>
@@ -61,12 +61,12 @@
 				@endif
 				@if(LAConfigs::getByKey('show_tasks'))
 				<!-- Tasks Menu -->
-				<li class="dropdown tasks-menu">
+				<!-- <li class="dropdown tasks-menu"> -->
 					<!-- Menu Toggle Button -->
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="fa fa-flag-o"></i>
 						<span class="label label-danger">9</span>
-					</a>
+					</a> -->
 					<ul class="dropdown-menu">
 						<li class="header">You have 9 tasks</li>
 						<li>
@@ -105,20 +105,20 @@
 						<!-- Menu Toggle Button -->
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<!-- The user image in the navbar-->
-							<img src="{{ Gravatar::fallback(asset('la-assets/img/user2-160x160.jpg'))->get(Auth::user()->email) }}" class="user-image" alt="User Image"/>
+							<img src="{{str_replace("index.php","",$_SERVER["PHP_SELF"])}}./la-assets/img/gambaruser.jpg" class="user-image" alt="User Image"/>
 							<!-- hidden-xs hides the username on small devices so only the image appears. -->
 							<span class="hidden-xs">{{ Auth::user()->name }}</span>
 						</a>
 						<ul class="dropdown-menu">
 							<!-- The user image in the menu -->
 							<li class="user-header">
-								<img src="{{ Gravatar::fallback(asset('la-assets/img/user2-160x160.jpg'))->get(Auth::user()->email) }}" class="img-circle" alt="User Image" />
+								<img src="{{str_replace("index.php","",$_SERVER["PHP_SELF"])}}./la-assets/img/gambaruser.jpg" class="img-circle" alt="User Image" />
 								<p>
 									{{ Auth::user()->name }}
 									<?php
 									$datec = Auth::user()['created_at'];
 									?>
-									<small>Member since <?php echo date("M. Y", strtotime($datec)); ?></small>
+									<!-- <small>Member since <?php echo date("M. Y", strtotime($datec)); ?></small> -->
 								</p>
 							</li>
 							<!-- Menu Body -->
@@ -155,10 +155,10 @@
 				@endif
 				@if(LAConfigs::getByKey('show_rightsidebar'))
 				<!-- Control Sidebar Toggle Button -->
-				<li>
+				<!-- <li>
 					<a href="#" data-toggle="control-sidebar"><i class="fa fa-comments-o"></i> <span class="label label-warning">10</span></a>
 					
-				</li>
+				</li> -->
 				@endif
 			</ul>
 		</div>
