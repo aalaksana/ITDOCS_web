@@ -112,9 +112,102 @@ class ProjectCetakController extends Controller
                 IFNULL (DATE_FORMAT(up13Date,'%d-%m-%Y'),'-') AS up13Date,
                 IFNULL (DATE_FORMAT(up14Date,'%d-%m-%Y'),'-') AS up14Date,
                 IFNULL (DATE_FORMAT(up15Date,'%d-%m-%Y'),'-') AS up15Date
-            FROM testreport
-            WHERE id = ?
-        ", [$id]);
+            FROM 
+(select p.id, p.nama as proyek, now() as printDate,
+p.dasar as dsrHukum, p.deskripsi as desProyek,
+p.start_date as startDate,
+(case when status=7 then updated_at else null end) as endDate,
+(select nama_instansi from departments d where p.instansi=d.id limit 1) as probisUnit,
+(select name from users u where p.inisiator=u.id limit 1) as probisName,
+(select nip from users u where p.inisiator=u.id limit 1) as probisNIP,
+(select name from users u, teams t where t.project_id=p.id and t.peran='Proses Bisnis' and t.staf=u.id limit 1) as prostafName,
+(select nip from users u, teams t where t.project_id=p.id and t.peran='Proses Bisnis' and t.staf=u.id limit 1) as prostafNIP,
+(select nama_instansi from departments d,users u, teams t  where t.peran='Pengembang SI' and t.nama_pj=u.id and u.instansi=d.id limit 1) as devUnit,
+(select name from users u, teams t where t.project_id=p.id and t.peran='Pengembang SI' and t.nama_pj=u.id limit 1) as devName,
+(select nip from users u, teams t where t.project_id=p.id and t.peran='Pengembang SI' and t.nama_pj=u.id limit 1) as devNIP,
+(select name from users u, teams t where t.project_id=p.id and t.peran='Pengembang SI' and t.staf=u.id limit 1) as analName,
+(select nip from users u, teams t where t.project_id=p.id and t.peran='Pengembang SI' and t.staf=u.id limit 1) as analNIP,
+(select name from users u, teams t where t.project_id=p.id and t.peran='Pengembang SI' and t.staf1=u.id limit 1) as proName,
+(select nip from users u, teams t where t.project_id=p.id and t.peran='Pengembang SI' and t.staf1=u.id limit 1) as proNIP,
+(select name from users u, teams t where t.project_id=p.id and t.peran='Pengembang SI' and t.staf2=u.id limit 1) as testName,
+(select nip from users u, teams t where t.project_id=p.id and t.peran='Pengembang SI' and t.staf2=u.id limit 1) as testNIP,
+(select name from users u, teams t where t.project_id=p.id and t.peran='Pengembang SI' and t.staf3=u.id limit 1) as suppName,
+(select nip from users u, teams t where t.project_id=p.id and t.peran='Pengembang SI' and t.staf3=u.id limit 1) as suppNIP,
+(select nama_instansi from departments d,users u, teams t  where t.peran='Tim QA' and t.nama_pj=u.id and u.instansi=d.id limit 1) as qaUnit,
+(select name from users u, teams t where t.project_id=p.id and t.peran='Tim QA' and t.nama_pj=u.id limit 1) as qaName,
+(select nip from users u, teams t where t.project_id=p.id and t.peran='Tim QA' and t.nama_pj=u.id limit 1) as qaNIP,
+(case when status=0 then 'Input Proyek'
+when status=1 then 'Analisa'
+when status=2 then 'Perancangan'
+when status=3 then 'Pengembangan'
+when status=4 then 'Pengujian'
+when status=5 then 'Implementasi'
+when status=6 then 'Pasca Implementasi'
+when status=7 then 'Selesai' else '' end) as prog,
+(case when status=7 then updated_at else null end) as progendDate,
+concat('Direktur ', (select es2 from departments d where p.instansi=d.id limit 1)) as probisJab,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 0' limit 1) as nm0Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 1' limit 1) as nm1Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 2' limit 1) as nm2Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 3' limit 1) as nm3Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 4' limit 1) as nm4Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 5' limit 1) as nm5Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 6' limit 1) as nm6Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 7' limit 1) as nm7Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 7.0' limit 1) as nm70Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 7.1' limit 1) as nm71Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 8' limit 1) as nm8Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 8.1' limit 1) as nm81Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 9' limit 1) as nm9Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 10' limit 1) as nm10Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 11' limit 1) as nm11Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 12' limit 1) as nm12Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 13' limit 1) as nm13Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 14' limit 1) as nm14Dok,
+(select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 15' limit 1) as nm15Dok,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 0' limit 1) as dok0Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 1' limit 1) as dok1Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 2' limit 1) as dok2Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 3' limit 1) as dok3Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 4' limit 1) as dok4Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 5' limit 1) as dok5Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 6' limit 1) as dok6Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 7' limit 1) as dok7Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 7.0' limit 1) as dok70Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 7.1' limit 1) as dok71Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 8' limit 1) as dok8Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 8.1' limit 1) as dok81Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 9' limit 1) as dok9Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 10' limit 1) as dok10Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 11' limit 1) as dok11Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 12' limit 1) as dok12Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 13' limit 1) as dok13Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 14' limit 1) as dok14Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 15' limit 1) as dok15Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 0' limit 1) as up0Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 1' limit 1) as up1Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 2' limit 1) as up2Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 3' limit 1) as up3Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 4' limit 1) as up4Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 5' limit 1) as up5Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 6' limit 1) as up6Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 7' limit 1) as up7Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 7.0' limit 1) as up70Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 7.1' limit 1) as up71Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 8' limit 1) as up8Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 8.1' limit 1) as up81Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 9' limit 1) as up9Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 10' limit 1) as up10Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 11' limit 1) as up11Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 12' limit 1) as up12Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 13' limit 1) as up13Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 14' limit 1) as up14Date,
+(select dk.created_at from dokumens dk where dk.project_id=p.id and jenis='Dokumen 15' limit 1) as up15Date
+
+from projects p
+ 
+WHERE id = ?
+) x", [$id]);
 
         $obj[] = (object)[
             'proyek' => $rows[0] -> proyek,

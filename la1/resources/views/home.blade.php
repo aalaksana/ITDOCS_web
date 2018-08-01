@@ -139,7 +139,7 @@
 				<ol class="features">
 					<li><strong>SDLC based</strong> (Software Developement Life Cycle) &#8211; Mengacu kepada standar SDLC sesuai KMK 351/KMK.01/2011.</li>
 					<li>Alat Bantu <strong>Manajemen Proyek</strong> &#8211; Setiap stakeholder bisa memantau perkembangan proyek SI.</li>
-					<li>Administrasi <strong>dokumentasi</strong> yang handal</li>
+					<li>Administrasi <strong>dokumentasi</strong> yang handal &#8211;</li>
 				</ol><br>
 
 				<h3 class="feature-title">Siapa yang diuntungkan oleh ITDOCS ?</h3><br>
