@@ -90,4 +90,7 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 
 	/* ================== Cetak ================== */
 	Route::get(config('laraadmin.adminRoute') . '/projects/cetak/{id}', 'LA\ProjectCetakController@cetakTBS');
+
+    /* ================== API ================== */
+    Route::resource(config('laraadmin.adminRoute').'/notif','LA\NotifController');
 });
