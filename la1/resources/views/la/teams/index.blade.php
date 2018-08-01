@@ -2,8 +2,8 @@
 
 @section("contentheader_title", "Tim")
 @section("contentheader_description", "Daftar Tim")
-@section("section", "Timm")
-@section("sub_section", "Listing")
+@section("section", "Tim")
+@section("sub_section", "Daftar")
 @section("htmlheader_title", "Daftar Tim")
 
 @section("headerElems")
@@ -68,8 +68,8 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				{!! Form::submit( 'Submit', ['class'=>'btn btn-success']) !!}
+				<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+				{!! Form::submit( 'Simpan', ['class'=>'btn btn-success']) !!}
 			</div>
 			{!! Form::close() !!}
 		</div>

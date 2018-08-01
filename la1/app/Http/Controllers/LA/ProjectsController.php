@@ -152,6 +152,33 @@ class ProjectsController extends Controller
 			$user = Auth::user()->id;
 			$role= DB::select("SELECT u.id, r.name from roles r, users u, role_user ru 
 			WHERE r.id=ru.role_id and ru.user_id=u.id and u.id=".$user);
+			$dok= DB::SELECT("select project_id, 
+				sum(case when jenis='Dokumen 0' then 1 else 0 end) as dok0 ,
+				sum(case when jenis='Dokumen 1' then 1 else 0 end) as dok1 ,
+				sum(case when jenis='Dokumen 2' then 1 else 0 end) as dok2 ,
+				sum(case when jenis='Dokumen 3' then 1 else 0 end) as dok3 ,
+				sum(case when jenis='Dokumen 4' then 1 else 0 end) as dok4 ,
+				sum(case when jenis='Dokumen 5' then 1 else 0 end) as dok5 ,
+				sum(case when jenis='Dokumen 6' then 1 else 0 end) as dok6 ,
+				sum(case when jenis='Dokumen 7' then 1 else 0 end) as dok7 ,
+				sum(case when jenis='Dokumen 7.0' then 1 else 0 end) as dok70 ,
+				sum(case when jenis='Dokumen 7.1' then 1 else 0 end) as dok71 ,
+				sum(case when jenis='Dokumen 8' then 1 else 0 end) as dok8 ,
+				sum(case when jenis='Dokumen 8.1' then 1 else 0 end) as dok81 ,
+				sum(case when jenis='Dokumen 9' then 1 else 0 end) as dok9 ,
+				sum(case when jenis='Dokumen 10' then 1 else 0 end) as dok10 ,
+				sum(case when jenis='Dokumen 11' then 1 else 0 end) as dok11 ,
+				sum(case when jenis='Dokumen 12' then 1 else 0 end) as dok12 ,
+				sum(case when jenis='Dokumen 13' then 1 else 0 end) as dok13 ,
+				sum(case when jenis='Dokumen 14' then 1 else 0 end) as dok14 ,
+				sum(case when jenis='Dokumen 15' then 1 else 0 end) as dok15 from dokumens
+				WHERE project_id=".$id." 
+				group by project_id
+				union
+				select 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 from dual");
+			$pj= DB::SELECT("select nama_pj from teams where peran='Pengembang SI' and project_id=".$id.
+							" union select 0 nama_pj from dual");
+			 // dd($dok);
 /*END -AALAKSANA*/
 				return view('la.projects.show', [
 					'module' => $module,
@@ -159,7 +186,9 @@ class ProjectsController extends Controller
 					'no_header' => true,
 					'no_padding' => "no-padding",
 					'tombols'=> $tombols,
-/*AALAKSANA*/		'role' => $role
+					'role' => $role,
+/*AALAKSANA*/		'dok' => $dok,
+					'pj' => $pj
 				])->with('project', $project);
 			} else {
 				return view('errors.404', [
@@ -277,11 +306,11 @@ class ProjectsController extends Controller
 			
 			if($this->show_action) {
 				$output = '';
-				if(Module::hasAccess("Projects", "edit")) {
+				if(Module::hasAccess("Projects", "edit")&& $data->data[$i][3]==Auth::user()->id && $data->data[$i][7]=0) {
 					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/projects/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
 				}
 				
-				if(Module::hasAccess("Projects", "delete")) {
+				if(Module::hasAccess("Projects", "delete")&& $data->data[$i][3]==Auth::user()->id && $data->data[$i][7]=0) {
 					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.projects.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
 					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
 					$output .= Form::close();

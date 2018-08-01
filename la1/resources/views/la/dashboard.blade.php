@@ -288,7 +288,8 @@
               'Pengembangan',
               'Pengujian',
               'Implementasi',
-              'Pasca Implementasi'
+              'Pasca Implementasi',
+              'Selesai'
           ],
           '{{ $status }}',
           'progress-bar-wrapper' // created this optional parameter for container name (otherwise default container created)

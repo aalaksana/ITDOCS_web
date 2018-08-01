@@ -4,15 +4,23 @@ $oke=0;
 $not=0;
 $status=$tombols[0]->status;
 $stattext=str_replace(array(0,1,2,3,4,5,6,7), array('Input Proyek','Analisa','Perancangan','Pengembangan','Pengujian','Implementasi','Pasca Implementasi','Selesai'), $status);
-if(($status=='0') && ($role[0]->id==$tombols[0]->inisiator ||$role[0]->id==1))//kondisi jika status status=0(inisiasi) dan user ini=inisiator atau admin
+if(($status=='0') && $role[0]->id==$tombols[0]->inisiator && $dok[0]->dok0>0)//kondisi jika status status=0(inisiasi) dan user ini=inisiator atau admin
 {	$oke=1;
     $label="Ajukan";
 }
-elseif(($status=='6') && ($role[0]->id==$tombols[0]->inisiator ||$role[0]->id==1))//kondisi jika status status=6(pc_implemen) dan user ini=inisiator atau admin
+elseif($status=='6' && $role[0]->id==$tombols[0]->inisiator && $dok[0]->dok14>0 && $dok[0]->dok15>0)//kondisi jika status status=6(pc_implemen) dan user ini=inisiator dan ada dok14 dok15
 {	$oke=1;$not=1;
     $label="Selesai";
 } 
-elseif (($status>='1' ||$status<='5') && $role[0]->name=="PROJECT MAN")
+elseif ($role[0]->id==$pj[0]->nama_pj && 
+		(
+			(($dok[0]->dok1>0 || $dok[0]->dok2>0) && $status=='1') ||
+			($dok[0]->dok3>0 && $dok[0]->dok4>0 && $status=='2') ||
+			($dok[0]->dok5>0 && $dok[0]->dok6>0 && $dok[0]->dok7>0 && $dok[0]->dok70>0 && $status=='3') ||
+			($dok[0]->dok71>0 && $dok[0]->dok8>0 && $dok[0]->dok81>0 && $dok[0]->dok9>0 && $status=='4') ||
+			($dok[0]->dok10>0 && $dok[0]->dok11>0 && $dok[0]->dok12>0 && $dok[0]->dok13>0 && $status=='5')
+		)
+		)
 {	$oke=1;$not=1;
     $label="Setujui";
 }

@@ -4,7 +4,7 @@
 @section("contentheader_description", "Daftar Proyek")
 @section("section", "Projects")
 @section("sub_section", "Listing")
-@section("htmlheader_title", "Projects Listing")
+@section("htmlheader_title", "Daftar Proyek")
 
 @section("headerElems")
 @la_access("Projects", "create")
@@ -67,7 +67,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-				{!! Form::submit( 'Tambah', ['class'=>'btn btn-success']) !!}
+				{!! Form::submit( 'Simpan', ['class'=>'btn btn-success']) !!}
 			</div>
 			{!! Form::close() !!}
 		</div>

@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
-@section("contentheader_title", "Roles")
-@section("contentheader_description", "Roles listing")
-@section("section", "Roles")
-@section("sub_section", "Listing")
-@section("htmlheader_title", "Roles Listing")
+@section("contentheader_title", "Role")
+@section("contentheader_description", "Daftar Role")
+@section("section", "Role")
+@section("sub_section", "Daftar")
+@section("htmlheader_title", "Daftar Role")
 
 @section("headerElems")
 @la_access("Roles", "create")
-	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Role</button>
+	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Tambah Role</button>
 @endla_access
 @endsection
 
@@ -51,7 +51,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Add Role</h4>
+				<h4 class="modal-title" id="myModalLabel">Tambah Role</h4>
 			</div>
 			{!! Form::open(['action' => 'LA\RolesController@store', 'id' => 'role-add-form']) !!}
 			<div class="modal-body">
@@ -67,8 +67,8 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				{!! Form::submit( 'Submit', ['class'=>'btn btn-success']) !!}
+				<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+				{!! Form::submit( 'Simpan', ['class'=>'btn btn-success']) !!}
 			</div>
 			{!! Form::close() !!}
 		</div>

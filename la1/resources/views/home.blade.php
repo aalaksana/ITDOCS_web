@@ -139,12 +139,12 @@
 				<ol class="features">
 					<li><strong>SDLC based</strong> (Software Developement Life Cycle) &#8211; Mengacu kepada standar SDLC sesuai KMK 351/KMK.01/2011.</li>
 					<li>Alat Bantu <strong>Manajemen Proyek</strong> &#8211; Setiap stakeholder bisa memantau perkembangan proyek SI.</li>
-					<li>Administrasi <strong>dokumentasi</strong> yang handal &#8211; Can be evolved into a CRM system like <a target="_blank" href="https://www.sugarcrm.com">SugarCRM</a></li>
+					<li>Administrasi <strong>dokumentasi</strong> yang handal</li>
 				</ol><br>
 
 				<h3 class="feature-title">Siapa yang diuntungkan oleh ITDOCS ?</h3><br>
                 <ol class="features">
-					<li><strong>Pemilik proses bisnis </strong> kini dapat memantau proyek mereka yang <strong>terintegrasi</strong> dengan dokumen sah yang terkait. lihat lebih lanjut <a target="_blank" href="http://laraadmin.com/features">di sini.</a></li>
+					<li><strong>Pemilik proses bisnis </strong> kini dapat memantau proyek mereka yang <strong>terintegrasi</strong> dengan dokumen sah yang terkait.</li>
 					<li>Fungsi kontrol dari <strong>pengembang SI</strong> semakin diperkuat dengan membandingkan capaian proyek SI dengan target yang telah ditentukan.</li>
 					<li><strong>Unit pengendali internal</strong> mampu memeriksa dokumentasi sistem lewat internet, dari mana dan kapan saja.</li>
 				</ol>
@@ -164,8 +164,6 @@
                 <a href="https://www.kemenkeu.go.id/" target="_blank">kemenkeu.go.id</a> <br/>
             </p>
 			<div class="contact-link"><i class="fa fa-envelope-o"></i> <a href="mailto:rzirwansyah@gmail.com">andre@hehanusa.com</a></div>
-			<div class="contact-link"><i class="fa fa-cube"></i> <a href="http://laraadmin.com">laraadmin.com</a></div>
-			<div class="contact-link"><i class="fa fa-building"></i> <a href="http://dwijitsolutions.com">dwijitsolutions.com</a></div>
         </div>
 
         <div class="col-lg-7">

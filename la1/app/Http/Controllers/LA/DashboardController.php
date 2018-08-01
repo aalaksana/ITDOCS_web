@@ -85,6 +85,8 @@ class DashboardController extends Controller
             $status='Implementasi';
         } elseif ($Progress[0]->status == 6){
             $status='Pasca Implementasi';
+        } elseif ($Progress[0]->status == 7){
+            $status='Selesai';
         } else $status='Pengajuan';
 
         // $img = Upload::find(2);
