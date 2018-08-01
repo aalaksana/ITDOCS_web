@@ -144,7 +144,7 @@ when status=4 then 'Pengujian'
 when status=5 then 'Implementasi'
 when status=6 then 'Pasca Implementasi'
 when status=7 then 'Selesai' else '' end) as prog,
-(case when status=7 then updated_at else null end) as progendDate,
+updated_at as progendDate,
 concat('Direktur ', (select es2 from departments d where p.instansi=d.id limit 1)) as probisJab,
 (select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 0' limit 1) as nm0Dok,
 (select dk.deskripsi from dokumens dk where dk.project_id=p.id and jenis='Dokumen 1' limit 1) as nm1Dok,

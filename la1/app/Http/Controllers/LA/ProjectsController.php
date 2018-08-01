@@ -131,13 +131,25 @@ class ProjectsController extends Controller
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id2)
-	{	$id=str_replace(array("setuj","batal"),"",$id2);
+	{	
+		$user = Auth::user()->id;
+		$role= DB::select("SELECT u.id, r.id rid, r.name from roles r, users u, role_user ru 
+		WHERE r.id=ru.role_id and ru.user_id=u.id and u.id=".$user ." limit 1");
+		$id=str_replace(array("setuj","batal"),"",$id2);
 		$aksi=substr($id2,0,5);
+
+		$tombols = DB::select('Select * from projects where id='.$id);
+		$status=$tombols[0]->status;
+		$stattext=str_replace(array(0,1,2,3,4,5,6,7), array('Input Proyek','Analisa','Perancangan','Pengembangan','Pengujian','Implementasi','Pasca Implementasi','Selesai'), $status);
+		$stat=str_replace('Input Proyek','Analisa',$stattext);
+
 		if($aksi=="setuj"){
+			DB::update("update dokumens set status='Disetujui', approved_by=".$user.",updated_at=now() where project_id=".$id." and jenis in (select jenis from doctypes where (tahap = '".$stat."' and ".$role[0]->rid." <> 3) or ( ".$role[0]->rid." = 3 and role = 4 and tahap ='".$stat."' ))");
 			DB::update("update projects set status=status+1 where id=".$id);
 			return redirect(config('laraadmin.adminRoute')."/projects/".$id);
 		}
 		if($aksi=="batal"){
+			DB::update("update dokumens set status='Ditolak', approved_by=".$user.",updated_at=now() where project_id=".$id." and jenis in (select jenis from doctypes where (tahap = '".$stat."' and ".$role[0]->rid." <> 3) or ( ".$role[0]->rid." = 3 and role = 4 and tahap ='".$stat."' ))");
 			DB::update("update projects set status=status-1 where id=".$id);
 			return redirect(config('laraadmin.adminRoute')."/projects/".$id);
 		}
@@ -148,10 +160,8 @@ class ProjectsController extends Controller
 				$module = Module::get('Projects');
 				$module->row = $project;
 /*START -AALAKSANA*/
-			$tombols = DB::select('Select * from projects where id='.$id);
-			$user = Auth::user()->id;
-			$role= DB::select("SELECT u.id, r.name from roles r, users u, role_user ru 
-			WHERE r.id=ru.role_id and ru.user_id=u.id and u.id=".$user);
+			
+			
 			$dok= DB::SELECT("select project_id, 
 				sum(case when jenis='Dokumen 0' then 1 else 0 end) as dok0 ,
 				sum(case when jenis='Dokumen 1' then 1 else 0 end) as dok1 ,
@@ -188,7 +198,10 @@ class ProjectsController extends Controller
 					'tombols'=> $tombols,
 					'role' => $role,
 /*AALAKSANA*/		'dok' => $dok,
-					'pj' => $pj
+					'pj' => $pj,
+					'id' => $id,
+					'stattext' => $stattext,
+					'status'=>$status
 				])->with('project', $project);
 			} else {
 				return view('errors.404', [
@@ -306,11 +319,11 @@ class ProjectsController extends Controller
 			
 			if($this->show_action) {
 				$output = '';
-				if(Module::hasAccess("Projects", "edit")&& $data->data[$i][3]==Auth::user()->id && $data->data[$i][7]=0) {
+				if(Module::hasAccess("Projects", "edit") && $data->data[$i][3]==Auth::user()->name) {
 					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/projects/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
 				}
 				
-				if(Module::hasAccess("Projects", "delete")&& $data->data[$i][3]==Auth::user()->id && $data->data[$i][7]=0) {
+				if(Module::hasAccess("Projects", "delete") && $data->data[$i][3]==Auth::user()->name) {
 					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.projects.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
 					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
 					$output .= Form::close();

@@ -231,11 +231,11 @@ class DokumensController extends Controller
 			
 			if($this->show_action) {
 				$output = '';
-			/*452*/	if(Module::hasAccess("Dokumens", "edit") && $data->data[$i][4]==Auth::user()->name &&$data->data[$i][5]=='Diajukan') {
+			/*452*/	if(Module::hasAccess("Dokumens", "edit") && $data->data[$i][4]==Auth::user()->name &&($data->data[$i][5]=='Diajukan' || $data->data[$i][5]=='Ditolak')) {
 					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/dokumens/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
 				}
 				
-			/*452*/	if(Module::hasAccess("Dokumens", "delete") && $data->data[$i][4]==Auth::user()->name &&$data->data[$i][5]=='Diajukan') {
+			/*452*/	if(Module::hasAccess("Dokumens", "delete") && $data->data[$i][4]==Auth::user()->name &&($data->data[$i][5]=='Diajukan' || $data->data[$i][5]=='Ditolak')) {
 					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.dokumens.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
 					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
 					$output .= Form::close();

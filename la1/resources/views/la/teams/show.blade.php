@@ -56,6 +56,9 @@
 						@la_display($module, 'peran')
 						@la_display($module, 'nama_pj')
 						@la_display($module, 'staf')
+						@la_display($module, 'staf1')
+						@la_display($module, 'staf2')
+						@la_display($module, 'staf3')
 					</div>
 				</div>
 			</div>

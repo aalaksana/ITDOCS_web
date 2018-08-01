@@ -2,13 +2,12 @@
 $label='';
 $oke=0;
 $not=0;
-$status=$tombols[0]->status;
-$stattext=str_replace(array(0,1,2,3,4,5,6,7), array('Input Proyek','Analisa','Perancangan','Pengembangan','Pengujian','Implementasi','Pasca Implementasi','Selesai'), $status);
-if(($status=='0') && $role[0]->id==$tombols[0]->inisiator && $dok[0]->dok0>0)//kondisi jika status status=0(inisiasi) dan user ini=inisiator atau admin
+
+if(($tombols[0]->status=='0') && $role[0]->id==$tombols[0]->inisiator && $dok[0]->dok0>0)//kondisi jika status status=0(inisiasi) dan user ini=inisiator atau admin
 {	$oke=1;
     $label="Ajukan";
 }
-elseif($status=='6' && $role[0]->id==$tombols[0]->inisiator && $dok[0]->dok14>0 && $dok[0]->dok15>0)//kondisi jika status status=6(pc_implemen) dan user ini=inisiator dan ada dok14 dok15
+elseif($tombols[0]->status=='6' && $role[0]->id==$tombols[0]->inisiator && $dok[0]->dok14>0 && $dok[0]->dok15>0)//kondisi jika status status=6(pc_implemen) dan user ini=inisiator dan ada dok14 dok15
 {	$oke=1;$not=1;
     $label="Selesai";
 } 

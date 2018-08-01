@@ -308,7 +308,7 @@
 		position: "top-right",
 		timeout: 0,
 		type: "success",
-		thumbnail: '<img width="40" height="40" style="display: inline-block;" src="{{ Gravatar::fallback(asset('la-assets/img/ahe.png'))->get(Auth::user()->email, 'default') }}" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'
+		thumbnail: '<img width="40" height="40" style="display: inline-block;" src={{str_replace("index.php","",$_SERVER["PHP_SELF"])}}./la-assets/img/gambaruser.jpg data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'
 	}).show();
 })(window.jQuery);
 </script>
