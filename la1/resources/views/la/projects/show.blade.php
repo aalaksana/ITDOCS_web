@@ -12,9 +12,11 @@
 			<div class="row">
 				<ul data-toggle="ajax-tab" class="nav nav-tabs profile" role="tablist">
 		<li class=""><a href="{{ url(config('laraadmin.adminRoute') . '/projects') }}" data-toggle="tooltip" data-placement="right" title="Kembali Ke Proyek"><i class="fa fa-chevron-left"></i></a></li>
-		<li class="active"><a role="tab" data-toggle="tab" class="active" href="#tab-general-info" data-target="#tab-info" class="fa fa-bars" class="name">{{ $project->$view_col }} </a></li>
+		<li class="active"><a role="tab" data-toggle="tab" class="active" href="#tab-general-info" data-target="#tab-info" class="fa fa-bars" class="name">{{ $project->$view_col }} </a></li>		
+		</ul>
 		
-	</ul>
+		
+	
 				<!-- <div class="col-md-3"> -->
 					<!--<img class="profile-image" src="{{ asset('la-assets/img/avatar5.png') }}" alt="">-->
 					<!-- <div class="profile-icon text-primary"><i class="fa {{ $module->fa_icon }}"></i></div>
@@ -23,6 +25,7 @@
 					<h4 class="name">{{ $project->$view_col }}</h4>
 									</div> -->
 			</div>
+
 		</div>
 <!-- 		<div class="col-md-8">
 			@la_access("Projects", "edit")
@@ -47,8 +50,8 @@
 		<div role="tabpanel" class="tab-pane active fade in" id="tab-info">
 			<div class="tab-content">
 				<div class="panel infolist">
-					<div class="panel-default panel-heading">
-						<h4>Informasi</h4>
+					<div class="panel-default panel-heading"> 
+						<div class="pull-right"><a href="{{ url(config('laraadmin.adminRoute') . '/projects/cetak/'.$id) }}" data-toggle="tooltip" data-placement="left" title="Download Laporan"><img src={{str_replace("index.php","",$_SERVER["PHP_SELF"])}}./la-assets/img/docx-icon.png width="50"></a></div><h4>Informasi</h4>
 					</div>
 					<div class="panel-body">
 						@la_display($module, 'nama')
