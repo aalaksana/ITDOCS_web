@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2018 at 09:59 AM
+-- Generation Time: Aug 02, 2018 at 03:24 AM
 -- Server version: 5.7.19
 -- PHP Version: 7.2.6
 
@@ -125,11 +125,11 @@ CREATE TABLE `dokumens` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `file` int(11) NOT NULL,
   `jenis` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
-  `uploaded_by` int(10) UNSIGNED NOT NULL DEFAULT '1',
-  `approved_by` int(10) UNSIGNED NOT NULL DEFAULT '1',
+  `uploaded_by` int(10) UNSIGNED DEFAULT NULL,
+  `approved_by` int(10) UNSIGNED DEFAULT NULL,
   `deskripsi` text COLLATE utf8_unicode_ci NOT NULL,
   `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Diajukan',
-  `project_id` int(10) UNSIGNED NOT NULL DEFAULT '1'
+  `project_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -137,7 +137,16 @@ CREATE TABLE `dokumens` (
 --
 
 INSERT INTO `dokumens` (`id`, `deleted_at`, `created_at`, `updated_at`, `file`, `jenis`, `uploaded_by`, `approved_by`, `deskripsi`, `status`, `project_id`) VALUES
-(1, NULL, '2018-07-30 21:08:38', '2018-07-30 21:08:38', 1, 'Dokumen 0', 4, 1, 'dokumen pertama', 'Diajukan', 1);
+(1, NULL, '2018-08-01 10:09:00', '2018-08-01 17:38:26', 1, 'Dokumen 0', 4, 5, 'Dokumen Kebutuhan Pengguna', 'Disetujui', 1),
+(2, NULL, '2018-08-01 10:35:32', '2018-08-01 17:38:26', 2, 'Dokumen 1', 6, 5, 'Dokumen Analisis dan Spesifikasi Kebutuhan', 'Disetujui', 1),
+(3, NULL, '2018-08-01 10:44:37', '2018-08-01 10:44:37', 4, 'Dokumen 2', 6, NULL, 'Dokumen Perubahan Analisis dan Spesifikasi Kebutuhan', 'Disetujui', 1),
+(4, NULL, '2018-08-01 10:45:42', '2018-08-01 17:46:40', 5, 'Dokumen 3', 6, 5, 'Dokumen Rancangan Tingkat Tinggi', 'Disetujui', 1),
+(5, NULL, '2018-08-01 10:46:21', '2018-08-01 17:46:40', 6, 'Dokumen 4', 6, 5, 'Dokumen Rancangan Rinci', 'Disetujui', 1),
+(6, NULL, '2018-08-01 10:48:31', '2018-08-01 17:52:48', 3, 'Dokumen 5', 7, 5, 'Dokumen Pengembangan Sistem Informasi', 'Disetujui', 1),
+(7, NULL, '2018-08-01 10:49:04', '2018-08-01 17:52:48', 7, 'Dokumen 6', 7, 5, 'Formulir Permintaan Perubahan dan Persetujuan', 'Disetujui', 1),
+(8, NULL, '2018-08-01 10:50:49', '2018-08-01 17:52:48', 8, 'Dokumen 7', 7, 5, 'Dokumen Rencana dan Skenario Pengujian', 'Disetujui', 1),
+(9, NULL, '2018-08-01 10:51:42', '2018-08-01 17:52:48', 9, 'Dokumen 7.0', 7, 5, 'Formulir Permintaan Pengendalian Mutu Aplikasi', 'Disetujui', 1),
+(10, NULL, '2018-08-01 16:15:56', '2018-08-01 23:16:29', 10, 'Dokumen 0', 4, 3, 'Dokumen Kebutuhan Pengguna SHIP', 'Disetujui', 2);
 
 -- --------------------------------------------------------
 
@@ -161,9 +170,8 @@ CREATE TABLE `history` (
 --
 
 INSERT INTO `history` (`id`, `created_at`, `user_id`, `value1`, `value2`, `value3`, `tabel`, `project`) VALUES
-(17, '2018-07-22 07:28:21', 3, 'Input', 'Aplikasi Pengembangan IT', NULL, 'projects', 1),
-(18, '2018-07-23 04:54:37', 3, 'input', 'Aplikasi Dummy', '', 'projects', 21),
-(19, '2018-07-30 12:45:21', 2, 'input', 'Proyek ABC', '', 'projects', 22);
+(1, '2018-08-01 16:12:16', 2, 'input', 'Aplikasi Pengembangan IT', '', 'projects', 1),
+(2, '2018-08-01 23:09:27', 3, 'input', 'Sistem Harmonisasi dan Informasi Peraturan', '', 'projects', 4);
 
 -- --------------------------------------------------------
 
@@ -524,8 +532,8 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `deleted_at`, `created_at`, `updated_at`, `nama`, `dasar`, `deskripsi`, `start_date`, `inisiator`, `instansi`, `status`) VALUES
-(1, NULL, '2018-07-21 19:48:40', '2018-07-22 00:24:35', 'Aplikasi Pengembangan IT', 'KMK No. 351/KMK.1/2011', 'Monitoring Perkembangan proyek IT di lingkungan kementerian keuangan', '2018-07-16', 3, 2, 1),
-(21, NULL, '2018-07-22 21:54:37', '2018-07-22 21:54:37', 'Aplikasi Dummy', 'Perdirjen Dummy', 'Aplikasi Dummy', '2018-07-26', 3, 2, 2);
+(1, NULL, '2018-08-01 09:12:16', '2018-08-01 09:12:16', 'Aplikasi Pengembangan IT', 'Keputusan Menteri Keuangan Nomor 351/KMK.01/2011', 'Dalam rangka mendukung pengembangan sistem informasi yang efektif dan efisien, diperlukan adanya pedoman siklus pengembangan sistem informasi di lingkungan Kementerian Keuangan', '2018-07-23', 3, 2, 4),
+(2, NULL, '2018-08-01 16:09:27', '2018-08-01 16:09:27', 'Sistem Harmonisasi dan Informasi Peraturan', 'Peraturan Menteri Keuangan No 123/PMK.01/2013', 'Sarana informasi dan optimalisasi harmonisasi peraturan di lingkungan kementerian keuangan', '2018-07-18', 3, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -1140,7 +1148,7 @@ INSERT INTO `role_module_fields` (`id`, `role_id`, `field_id`, `access`, `create
 (701, 10, 10, 'invisible', '2018-07-29 03:15:38', '2018-07-29 03:15:38'),
 (702, 10, 11, 'invisible', '2018-07-29 03:15:38', '2018-07-29 03:15:38'),
 (703, 10, 12, 'invisible', '2018-07-29 03:15:38', '2018-07-29 03:15:38'),
-(704, 1, 113, 'write', '2018-07-29 21:47:53', '2018-07-29 21:47:53'),
+(704, 1, 113, 'invisible', '2018-07-29 21:47:53', '2018-07-29 21:47:53'),
 (705, 2, 113, 'invisible', '2018-07-30 05:44:47', '2018-07-30 05:44:47'),
 (706, 3, 113, 'invisible', '2018-07-30 05:44:47', '2018-07-30 05:44:47'),
 (707, 4, 113, 'invisible', '2018-07-30 05:44:47', '2018-07-30 05:44:47'),
@@ -1186,7 +1194,7 @@ INSERT INTO `role_module_fields` (`id`, `role_id`, `field_id`, `access`, `create
 (747, 9, 115, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
 (748, 9, 116, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
 (749, 9, 117, 'invisible', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
-(750, 10, 114, 'write', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
+(750, 10, 114, 'readonly', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
 (751, 10, 115, 'readonly', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
 (752, 10, 116, 'readonly', '2018-07-30 20:04:06', '2018-07-30 20:04:06'),
 (753, 10, 117, 'readonly', '2018-07-30 20:04:06', '2018-07-30 20:04:06');
@@ -1219,8 +1227,7 @@ INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`)
 (7, 7, 7, NULL, NULL),
 (8, 8, 8, NULL, NULL),
 (9, 9, 9, NULL, NULL),
-(10, 10, 10, NULL, NULL),
-(13, 10, 13, NULL, NULL);
+(10, 10, 10, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1239,7 +1246,7 @@ CREATE TABLE `teams` (
   `nama_pj` int(10) UNSIGNED DEFAULT NULL,
   `staf` int(10) UNSIGNED DEFAULT NULL,
   `staf1` int(10) UNSIGNED DEFAULT NULL,
-  `staf2` int(10) UNSIGNED DEFAULT '1',
+  `staf2` int(10) UNSIGNED DEFAULT NULL,
   `staf3` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1248,9 +1255,12 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`id`, `deleted_at`, `created_at`, `updated_at`, `nama`, `project_id`, `peran`, `nama_pj`, `staf`, `staf1`, `staf2`, `staf3`) VALUES
-(1, NULL, '2018-07-24 21:03:06', '2018-07-30 20:16:53', 'Tim A', 1, 'Proses Bisnis', 3, 4, NULL, NULL, NULL),
-(2, NULL, '2018-07-24 21:11:11', '2018-07-30 20:18:25', 'Tim A', 1, 'Pengembang SI', 5, 6, 7, 8, 9),
-(3, NULL, '2018-07-24 21:12:32', '2018-07-30 20:19:50', 'Tim A', 1, 'Tim QA', 10, 10, NULL, NULL, NULL);
+(1, NULL, '2018-08-01 09:36:59', '2018-08-01 10:04:27', 'Tim Task Force ITDOCS', 1, 'Proses Bisnis', 3, 4, NULL, NULL, NULL),
+(2, NULL, '2018-08-01 09:57:26', '2018-08-01 10:52:23', 'Tim Task Force ITDOCS', 1, 'Pengembang SI', 5, 6, 7, 8, 9),
+(3, NULL, '2018-08-01 10:03:59', '2018-08-01 10:03:59', 'Tim Task Force ITDOCS', 1, 'Tim QA', 10, NULL, NULL, NULL, NULL),
+(4, NULL, '2018-08-01 16:13:08', '2018-08-01 16:14:24', 'Tim SHIP', 2, 'Proses Bisnis', 3, 4, NULL, NULL, NULL),
+(5, NULL, '2018-08-01 16:13:31', '2018-08-01 16:18:26', 'Tim SHIP', 2, 'Pengembang SI', 5, 6, 7, 8, 9),
+(6, NULL, '2018-08-01 16:13:50', '2018-08-01 16:13:50', 'Tim SHIP', 2, 'Tim QA', 10, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1277,7 +1287,16 @@ CREATE TABLE `uploads` (
 --
 
 INSERT INTO `uploads` (`id`, `name`, `path`, `extension`, `caption`, `user_id`, `hash`, `public`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Laravel Cheatsheet.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-07-31-040827-Laravel Cheatsheet.pdf', 'pdf', '', 4, 'hrb2v070um7wthkdkhfl', 1, NULL, '2018-07-30 21:08:27', '2018-07-30 21:08:27');
+(1, 'Dok 0. 20151106 Dokumen Kebutuhan Pengguna.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-08-01-170832-Dok 0. 20151106 Dokumen Kebutuhan Pengguna.pdf', 'pdf', '', 4, '9ahxoe0umlsadbeb9gmu', 1, NULL, '2018-08-01 10:08:32', '2018-08-01 10:08:32'),
+(2, 'Dok 1. 20151106 Dokumen Analisis dan Spesifikasi Kebutuhan.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-08-01-173510-Dok 1. 20151106 Dokumen Analisis dan Spesifikasi Kebutuhan.pdf', 'pdf', '', 6, 'm6nah9c6f0ut7zs8h4fd', 1, NULL, '2018-08-01 10:35:10', '2018-08-01 10:35:10'),
+(3, 'Dok 5. 20151106 Dokumen Pengembangan Sistem Informasi.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-08-01-174109-Dok 5. 20151106 Dokumen Pengembangan Sistem Informasi.pdf', 'pdf', '', 7, 'ow8buoza5vnyf3jiomdp', 1, NULL, '2018-08-01 10:41:09', '2018-08-01 10:41:09'),
+(4, 'Dok 2. 20151106 Dokumen Perubahan Analisis dan Spesifikasi Kebutuhan.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-08-01-174342-Dok 2. 20151106 Dokumen Perubahan Analisis dan Spesifikasi Kebutuhan.pdf', 'pdf', '', 6, '2hla21otfqy8rtk0cesg', 1, NULL, '2018-08-01 10:43:42', '2018-08-01 10:43:42'),
+(5, 'Dok 3. 20151106 Dokumen Rancangan Tingkat Tinggi.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-08-01-174531-Dok 3. 20151106 Dokumen Rancangan Tingkat Tinggi.pdf', 'pdf', '', 6, 'z7nuzyqgqkw5moyfpvmu', 1, NULL, '2018-08-01 10:45:31', '2018-08-01 10:45:31'),
+(6, 'Dok 4. 20151106 Dokumen Rancangan Rinci.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-08-01-174553-Dok 4. 20151106 Dokumen Rancangan Rinci.pdf', 'pdf', '', 6, 'adesxqprhqx61chksraw', 1, NULL, '2018-08-01 10:45:53', '2018-08-01 10:45:53'),
+(7, 'Dok 6. 20151106 Formulir Permintaan Perubahan dan Persetujuan.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-08-01-174852-Dok 6. 20151106 Formulir Permintaan Perubahan dan Persetujuan.pdf', 'pdf', '', 7, 'klebjatemvkmemxsqipp', 1, NULL, '2018-08-01 10:48:52', '2018-08-01 10:48:52'),
+(8, 'Dok 7. 20151106 Dokumen Rencana dan Skenario Pengujian.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-08-01-175033-Dok 7. 20151106 Dokumen Rencana dan Skenario Pengujian.pdf', 'pdf', '', 7, 'rnipnrhionyu7n4upd22', 1, NULL, '2018-08-01 10:50:33', '2018-08-01 10:50:33'),
+(9, 'Dok 7.0 20151106 Formulir Permintaan Pengendalian Mutu Aplikasi.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-08-01-175137-Dok 7.0 20151106 Formulir Permintaan Pengendalian Mutu Aplikasi.pdf', 'pdf', '', 7, 'pllfefhuv82lhpck6lrw', 1, NULL, '2018-08-01 10:51:37', '2018-08-01 10:51:37'),
+(10, 'Dok 0. 20151106 Dokumen Kebutuhan Pengguna.pdf', 'D:\\laragon\\www\\la1\\storage\\uploads\\2018-08-01-231549-Dok 0. 20151106 Dokumen Kebutuhan Pengguna.pdf', 'pdf', '', 4, 'yhpqxowrfqj2xg15psnr', 1, NULL, '2018-08-01 16:15:49', '2018-08-01 16:15:49');
 
 -- --------------------------------------------------------
 
@@ -1295,7 +1314,7 @@ CREATE TABLE `users` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `instansi` int(10) UNSIGNED NOT NULL DEFAULT '1'
+  `instansi` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1303,17 +1322,16 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `nip`, `email`, `password`, `remember_token`, `deleted_at`, `created_at`, `updated_at`, `instansi`) VALUES
-(1, 'admin admin', '199008262012101002', 'mail.laksana@gmail.com', '$2y$10$O.7C006oeGCLv703St/3Quy5QT2KYEhsfvJhz5o1tD54MQr3f/npO', 'o3L0eROpiNOVekQrlGpmYXIbSQSL0ourvEr4z8qsB2SStOqAh3idKZDWHsFM', NULL, '2018-07-15 07:18:14', '2018-07-30 23:12:39', 1),
-(2, 'User Admin', '199101212011101001', 'test@gmail.com', '$2y$10$fnLEzxqk35JpbIPXidHwleSqE/If71CFPr11ftTsTjiZaLaTsUbuG', 'qlyI7eFWIm5AG9aNXvgJtUw6X2wIPaplyGp5fVWXeZgLzoETsxSHYmRCZRum', NULL, '2018-07-16 05:42:57', '2018-07-30 19:02:45', 1),
-(3, 'User Inisiator', '198737373648272632', 'inisiator@kemenkeu.go.id', '$2y$10$209bBMKYn3Jv9ggTHx7JUezqt6UGSosxNd3FzdQeQIv3kj0KlC9BO', 'A8YkDzbrSBWwyd2pjFOhnCv22ZJ7B3xRWYouqSPNH8xeEgHWh6uwuxwOJBQk', NULL, '2018-07-19 06:45:09', '2018-07-30 20:17:17', 2),
-(4, 'User Init Ops', '198001029381029192', 'initops@kemenkeu.go.id', '$2y$10$Fub0Ai9QMiC565jJGm5zDumENSFeLKn6/Un55ptsh49Auy.k17ofO', 'JFXVVQUhpQk7nts446YAjkZsHSeqObdYqCD0NIjSNOPhYykiaP9OTvsaCGnD', NULL, '2018-07-19 06:46:54', '2018-07-30 21:19:30', 2),
-(5, 'User Project Man', '198201020102102011', 'projectman@kemenkeu.go.id', '$2y$10$Tv3MM5GXrfyGzWxNHwHrBeqLUjr08v70hs6qluhovtUPT8x/Mj1NK', 'zto3g0wvPqjAARnQsgNKSZFRPakOPyglcgSOAHdiCJJFgMNmeljdDK8EHnLc', NULL, '2018-07-19 06:47:39', '2018-07-30 20:19:13', 1),
-(6, 'User Analyst', '198201929281928192', 'analyst@kemenkeu.go.id', '$2y$10$pWHDGit9Ji1HmLxnKDwCgOdKrAs8CMlUgA2SnC6Scqs4QAfhuWfxu', NULL, NULL, '2018-07-19 06:48:22', '2018-07-19 06:48:22', 1),
-(7, 'User Dev', '199019201928191829', 'dev@kemenkeu.go.id', '$2y$10$yFtWkYcVIm94TBXuVbY9mej.wTztc/R083MlXhtS8B9EY3/7wxlru', NULL, NULL, '2018-07-19 06:49:18', '2018-07-19 06:49:18', 1),
-(8, 'User Tester', '198201020102102001', 'tester@kemenkeu.go.id', '$2y$10$.yWYxbnLLLz/.UQUguOU8.xnKxUG8Z2bP3pRSnvWXIzjITkl8lxxe', NULL, NULL, '2018-07-19 06:50:49', '2018-07-19 06:50:49', 1),
-(9, 'User Support', '198201929281928002', 'support@kemenkeu.go.id', '$2y$10$kj4XXEyVAA.0DpHbHW9GAOIfvSRHkHUJLTg/t31ya0YvmMdgtx5sy', NULL, NULL, '2018-07-19 06:51:39', '2018-07-19 06:51:39', 1),
-(10, 'User QA', '198737373648200031', 'qa@kemenkeu.go.id', '$2y$10$7vZSYx.Y30NQ6.qfJEIHXuITXWk4MwvnHAakyjiClsMwciuD8032W', 'mesFGjgdu81PdLoMRjUofZ5bgExusnq9Oov2ILS1j4wtNN66Zjoxp3klyIbq', NULL, '2018-07-19 06:52:28', '2018-07-30 21:07:13', 3),
-(13, 'user coba', '1990090909900998', 'mail@mail.com', '$2y$10$Hxn4jgMh.v7fAJlOQlubY.c5XUjH0xgwBTNoyhHPNLUvYTcCuyKOG', NULL, NULL, '2018-07-30 07:12:31', '2018-07-30 07:12:31', 1);
+(1, 'admin admin', '199008262012101002', 'mail.laksana@gmail.com', '$2y$10$mbvwkt1Ir7qU.K/4z.WVsOjNh4fMp3hacoNbXi52byzw0MuxhgW0a', 'TqxL8NpEOHP97C1sPcubj477UyiLoJxmJtXLY3n2bqz6Qu6QSYlht7aIOrYJ', NULL, NULL, '2018-08-01 18:14:04', NULL),
+(2, 'User Admin', '199101212011101001', 'test@gmail.com', '$2y$10$fnLEzxqk35JpbIPXidHwleSqE/If71CFPr11ftTsTjiZaLaTsUbuG', 'rVIOhhKC3dqld54xV3lb7HYFNaxpUg6BgbXZRjcaxcWoRqgX9fKmC7PYBIdU', NULL, '2018-07-16 05:42:57', '2018-08-01 16:13:58', 1),
+(3, 'Andre Hehanusa', '198737373648272632', 'inisiator@kemenkeu.go.id', '$2y$10$XqktoHJjbAwDgjw3y2bbNOWWdcqmFnY4qvI0xK20tA0.vcpk/HDN2', 'bst5f80rnJ5EOM3RosFofzbZhC9TdjoSWiEutpg7W1WtzICt9gI9i58qzwBQ', NULL, '2018-07-19 06:45:09', '2018-08-01 16:17:22', 2),
+(4, 'User Init Ops', '198001029381029192', 'initops@kemenkeu.go.id', '$2y$10$Fub0Ai9QMiC565jJGm5zDumENSFeLKn6/Un55ptsh49Auy.k17ofO', '8Ae6IQ5XlMVGu3IQM7A2j7SoDeQuNFU0jr03aSc790Kslk9gYKA01587HGsx', NULL, '2018-07-19 06:46:54', '2018-08-01 16:17:38', 2),
+(5, 'Bob Tutupoli', '198201020102102011', 'projectman@kemenkeu.go.id', '$2y$10$3qEjRTPAsoF0wCwWTwCk0uZ74ZeQWwTxDf144z.74zUaw6KuKSAhS', 'IiTw2iOTgJlsd2bOydKaiPB7et1q28KyvmbWKGitgzRMStQdy48oqv6gwxtM', NULL, '2018-07-19 06:47:39', '2018-08-01 16:23:29', 1),
+(6, 'User Analyst', '198201929281928192', 'analyst@kemenkeu.go.id', '$2y$10$pWHDGit9Ji1HmLxnKDwCgOdKrAs8CMlUgA2SnC6Scqs4QAfhuWfxu', 'B1V0M3nzhbLrJdLB6zyLwAc7d2EYMjoIDGJNlWAIGgbE3TPmQqmofRfPVCnv', NULL, '2018-07-19 06:48:22', '2018-08-01 10:47:50', 1),
+(7, 'User Dev', '199019201928191829', 'dev@kemenkeu.go.id', '$2y$10$yFtWkYcVIm94TBXuVbY9mej.wTztc/R083MlXhtS8B9EY3/7wxlru', 'WcDXwzvi0NcCVlOh6XHUNBuu47eL9k7rXWngJsaEq2jjwdoqrq2aCHx792ej', NULL, '2018-07-19 06:49:18', '2018-08-01 10:55:09', 1),
+(8, 'User Tester', '198201020102102001', 'tester@kemenkeu.go.id', '$2y$10$.yWYxbnLLLz/.UQUguOU8.xnKxUG8Z2bP3pRSnvWXIzjITkl8lxxe', 'vvXvDa2qa2MDmsWQI89VzDHL8RYyxeC17UTfttuwkVoPxoEhnuubq9pmzRO8', NULL, '2018-07-19 06:50:49', '2018-08-01 10:56:20', 1),
+(9, 'User Support', '198201929281928002', 'support@kemenkeu.go.id', '$2y$10$kj4XXEyVAA.0DpHbHW9GAOIfvSRHkHUJLTg/t31ya0YvmMdgtx5sy', 'x088UIejd3JWIse4NQCZTZNdfMeoPQTZETyHsZstV2lXMu7uL6oODg1dfdpx', NULL, '2018-07-19 06:51:39', '2018-08-01 10:57:54', 1),
+(10, 'Siti Badriah', '198737373648200031', 'qa@kemenkeu.go.id', '$2y$10$9Lc99ui508CcpDidW9c6m.YndtbBG15gSPiOHVXG5rLxlR8ztcLxO', 'UjUY2wGtbw98qJF4CmswDH26nvF33jgBFPabW5UCFQ5HfPIAXe5ts2fiCFoP', NULL, '2018-07-19 06:52:28', '2018-08-01 15:21:01', 3);
 
 --
 -- Indexes for dumped tables
@@ -1499,13 +1517,13 @@ ALTER TABLE `doctypes`
 -- AUTO_INCREMENT for table `dokumens`
 --
 ALTER TABLE `dokumens`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `la_configs`
@@ -1547,7 +1565,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -1571,25 +1589,25 @@ ALTER TABLE `role_module_fields`
 -- AUTO_INCREMENT for table `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `uploads`
 --
 ALTER TABLE `uploads`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
